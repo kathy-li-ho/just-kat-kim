@@ -9,8 +9,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
     },
     {
@@ -19,7 +19,7 @@ module.exports = {
         accessToken: `-QYqjbZms2oAAAAAAAAhfl7J42f4FSiJ_j0zoFlq4PenqQLtrCF0cTKQA_stOvQ9`,
         extensions: [".pdf", ".gif", ".jpg", ".png", ".txt"],
         path: "",
-        recursive: false,
+        recursive: true,
       },
     },
     {
