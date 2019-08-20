@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Just Kat Kim`,
+    description: `A portfolio site`,
+    author: `Katherine Kim, Kathy Li`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +11,21 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-dropbox`,
+      options: {
+        accessToken: `-QYqjbZms2oAAAAAAAAhfl7J42f4FSiJ_j0zoFlq4PenqQLtrCF0cTKQA_stOvQ9`,
+        extensions: [".pdf", ".gif", ".jpg", ".png", ".txt"],
+        path: "",
+        recursive: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`postcss-preset-env`)({stage: 0})],
       },
     },
     `gatsby-transformer-sharp`,
