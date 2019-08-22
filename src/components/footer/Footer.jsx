@@ -39,7 +39,6 @@ const Footer = () => {
         src,
         srcSet,
         ...generateSizes(),
-        alt: "footer image"
     };
 
     return (
@@ -48,7 +47,7 @@ const Footer = () => {
             <small className="copy">
                 &copy;{new Date().getFullYear()} <strong>katherine kim</strong>.
             </small>
-            <img {...imageProps} />
+            <img {...imageProps} alt="footer" />
         </footer>
     )
 }

@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo|Special+Elite&display=swap');
 
-@custom-media --mobile-viewport (max-width: 575px);
-@custom-media --tablet-viewport (min-width: 576px);
+@custom-media --sm-viewport (min-width: 576px);
+@custom-media --md-viewport (min-width: 768px);
+@custom-media --under-md-viewport (max-width: 767px);
 
 html {
     -ms-text-size-adjust: 100%;
