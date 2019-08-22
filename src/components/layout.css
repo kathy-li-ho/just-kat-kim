@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo|Special+Elite&display=swap');
 
+@custom-media --mobile-viewport (max-width: 575px);
+@custom-media --tablet-viewport (min-width: 576px);
+
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -101,9 +104,7 @@ sub {
 sup {
     top: -0.5em;
 }
-img {
-    border-style: none;
-}
+
 svg:not(:root) {
     overflow: hidden;
 }
@@ -219,17 +220,7 @@ body {
     -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
-img {
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-}
+
 h1 {
     margin-left: 0;
     margin-right: 0;
@@ -628,5 +619,15 @@ pre tt:after {
 @media only screen and (max-width: 480px) {
     html {
         font-size: 100%;
+    }
+}
+
+#gatsby-focus-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    & main {
+        flex: 100%;
     }
 }

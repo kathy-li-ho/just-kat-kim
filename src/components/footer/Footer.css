@@ -1,0 +1,48 @@
+:root {
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    flex: 1 0 56.25vw;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+
+    @media (--sm-viewport) {
+        flex: 1 0 35vh;
+    }
+}
+
+.social {
+    background: white;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 10px 5px var(--shadow-color);
+}
+
+.copy {
+    align-self: center;
+    background: black;
+    color: white;
+    font-family: 'Special Elite', serif;
+    line-height: 1.5;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    padding: 2px 1ch 0;
+    margin: 15px;
+    opacity: 0.9;
+}
+
+.footerImg {
+    background: var(--shadow-color);
+    pointer-events: none;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
