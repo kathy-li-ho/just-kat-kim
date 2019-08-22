@@ -1,6 +1,6 @@
 import React from 'react'
 import {useStaticQuery, graphql} from 'gatsby'
-
+import Social from './social/Social';
 import './Footer.css'
 
 const transparentPNG = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
@@ -43,7 +43,7 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            <div className="social">social icons</div>
+            <Social />
             <small className="copy">
                 &copy;{new Date().getFullYear()} <strong>katherine kim</strong>.
             </small>
