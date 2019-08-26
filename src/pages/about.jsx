@@ -1,13 +1,10 @@
-import React from "react"
-
-import Layout from "../components/layout/Layout"
-import SEO from "../components/seo/SEO"
+import React from 'react';
+import Layout from '../components/layout/Layout';
 
 const AboutPage = () => (
-  <Layout>
-    <SEO title="About" />
-    content
-  </Layout>
-)
+    <Layout page="about" pageTitle="About">
+        content
+    </Layout>
+);
 
-export default AboutPage
+export default AboutPage;

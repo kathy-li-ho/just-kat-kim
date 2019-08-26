@@ -1,13 +1,10 @@
-import React from "react"
+import React from 'react';
+import Layout from '../components/layout/Layout';
 
-import Layout from "../components/layout/Layout"
-import SEO from "../components/seo/SEO"
+const PortfolioPage = () => (
+    <Layout page="portfolio" pageTitle="Portfolio">
+        content
+    </Layout>
+);
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Portfolio" />
-    content
-  </Layout>
-)
-
-export default SecondPage
+export default PortfolioPage;

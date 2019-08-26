@@ -1,13 +1,10 @@
-import React from "react"
+import React from 'react';
+import Layout from '../components/layout/Layout';
 
-import Layout from "../components/layout/Layout"
-import SEO from "../components/seo/SEO"
+const FavoritesPage = () => (
+    <Layout page="favorites" pageTitle="Kat's Bag">
+        content
+    </Layout>
+);
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Kat's Bag" />
-    content
-  </Layout>
-)
-
-export default SecondPage
+export default FavoritesPage;

@@ -3,20 +3,28 @@
     padding: 20px;
 }
 
-.email,
-.ig ,
+.socialLink,
 .handle,
 .color {
     transition: all 0.3s;
 }
 
-.email,
-.ig {
+.handle {
+    color: darkgray;
+    display: inline-block;
+    width: 100px;
+}
+
+.email .handle {
+    text-align: right;
+}
+
+.socialLink {
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
- 
+
     &::before {
         display: none;
     }
@@ -27,31 +35,13 @@
         margin: 0 10px;
     }
 
-     & .handle {
-        display: inline-block;
-        width: 100px;
-        height: 1.5rem;
-        overflow: hidden;
-     }
-
     &:not(:hover) {
-        opacity: 0.2;
+        & .handle {
+            opacity: 0;
+        }
 
         & .color {
-            fill: black !important;
-        }
-
-        & .handle {
-            width: 0;
+            fill: lightgray !important;
         }
     }
-}
-
-.email .handle {
-    text-align: right;
-    margin-left: 100px;
-}
-
-.ig .handle {
-    margin-right: 100px;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-// import cx from 'classnames';
+import cx from 'classnames';
 
 import './Social.css';
 
 const Social = () => (
     <div className="social">
-        <a className="email" href="mailto:katskim@gmail.com">
+        <a className={cx('socialLink', 'email')} href="mailto:katskim@gmail.com">
             <span className="handle">katskim</span>
             <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -23,7 +23,7 @@ const Social = () => (
                 />
             </svg>
         </a>
-        <a className="ig" href="https://www.instagram.com/justkatkim/">
+        <a className="socialLink" href="https://www.instagram.com/justkatkim/">
             <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
                 <path clipRule="evenodd" fill="none" d="M0 0h128v128H0z" />
                 <radialGradient
