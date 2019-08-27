@@ -10,13 +10,13 @@ const Layout = ({pageTitle, page, children}) => (
     <>
         <Header />
         <SEO title={pageTitle} />
-        <main>{children}</main>
+        <main className={page}>{children}</main>
         <Footer page={page} />
     </>
 );
 
 Layout.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     page: PropTypes.string.isRequired,
     pageTitle: PropTypes.string,
 };
