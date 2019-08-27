@@ -127,7 +127,7 @@ blockquote *:last-child {
         flex: 50vh;
         align-self: center;
         width: 100%;
-        padding:  20px 20px 10%;
+        padding: 20px 20px 10%;
 
         @media (--md-viewport) {
             padding: 30px 30px 10%;
@@ -145,7 +145,7 @@ blockquote *:last-child {
             max-width: 1400px;
         }
 
-        & div:first-child {
+        & .ace-line:first-child {
             display: none;
         }
     }
@@ -160,6 +160,7 @@ blockquote *:last-child {
     & .ace-line {
         display: block;
         text-align: center;
+        font-size: 1.2rem;
 
         & span {
             line-height: 2;
@@ -168,5 +169,26 @@ blockquote *:last-child {
 
     & h1 span {
         font-size: 2.5rem;
+    }
+}
+
+.favorites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & #list {
+        flex: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 20px;
+
+        @media (--sm-viewport) {
+            flex: 0 1 300px;
+        }
+    }
+
+    & .ace-line {
+        flex: 1 0 51%;
     }
 }
