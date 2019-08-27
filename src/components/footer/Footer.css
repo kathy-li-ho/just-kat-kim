@@ -1,9 +1,5 @@
-:root {
-    --shadow-color: rgba(0, 0, 0, 0.1);
-}
-
 .footer {
-    flex: 1 0 56.25vw;
+    flex: 70vw;
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -11,7 +7,7 @@
     position: relative;
 
     @media (--sm-viewport) {
-        flex: 1 0 35vh;
+        flex: 35vh;
     }
 }
 
@@ -38,10 +34,10 @@
 .footerImg {
     background: var(--shadow-color);
     pointer-events: none;
-    width: 100%;
+    width: 101%;
     height: auto;
     position: absolute;
-    top: 50%;
+    top: calc(50% + 35px);
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;

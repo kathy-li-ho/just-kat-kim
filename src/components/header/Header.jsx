@@ -8,18 +8,21 @@ const favoritesPath = '/favorites/';
 
 const Header = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
-    const pages = useStaticQuery(graphql`
-        query {
-            allSitePage(filter: {componentPath: {regex: "/pages/"}}) {
-                edges {
-                    node {
-                        path
+    const pages = useStaticQuery(
+        graphql`
+            query {
+                allSitePage(filter: {componentPath: {regex: "/pages/"}}) {
+                    edges {
+                        node {
+                            path
+                        }
                     }
                 }
             }
-        }
-    `, []).allSitePage.edges;
-    
+        `,
+        []
+    ).allSitePage.edges;
+
     const links = [];
 
     if (!links.length) {
@@ -43,12 +46,10 @@ const Header = () => {
             href: favoritesPath,
             title: "kat's bag",
         });
-    };
+    }
 
     return (
-        <header
-            className="header"
-        >
+        <header className="header">
             <button
                 className="menuToggle"
                 onClick={() => setToggleMenu(!toggleMenu)}
@@ -57,7 +58,9 @@ const Header = () => {
                     <path d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
                 </svg>
             </button>
-            <div className="meow">meow.</div>
+            <Link to="/" className="meow">
+                meow.
+            </Link>
             <nav className={cx('nav', {openNav: toggleMenu})}>
                 {links.map(link => {
                     const {title, href} = link;
