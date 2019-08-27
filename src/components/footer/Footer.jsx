@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useStaticQuery, graphql} from 'gatsby';
+import {getValueIn} from '../../utils';
 import Social from './social/Social';
 import './Footer.css';
 
 const transparentPNG =
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
-const path = obj => {
-    return obj && 'node' in obj ? obj.node.localFile.childImageSharp.fluid : {src: transparentPNG};
-};
+const path = context => getValueIn(context, 'node', 'localFile', 'childImageSharp', 'fluid') || {src: transparentPNG};
 
 const generateSizes = () => {
     const bps = [576, 768, 992, 1200, 1600];
