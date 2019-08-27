@@ -17,9 +17,16 @@ module.exports = {
             resolve: `gatsby-source-dropbox`,
             options: {
                 accessToken: `-QYqjbZms2oAAAAAAAAhfl7J42f4FSiJ_j0zoFlq4PenqQLtrCF0cTKQA_stOvQ9`,
-                extensions: ['.pdf', '.gif', '.jpg', '.png', '.txt'],
+                extensions: ['.pdf', '.gif', '.jpg', '.png'],
                 path: '',
                 recursive: true,
+            },
+        },
+        {
+            resolve: 'gatsby-source-dropbox-paper',
+            options: {
+                access_token: `-QYqjbZms2oAAAAAAAAhk9Wp8uxi_KSlIWUmNzbC0rjyamBenc6LNWoIeLObCxtJ`,
+                format: 'html',
             },
         },
         {
