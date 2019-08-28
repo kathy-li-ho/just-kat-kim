@@ -1,0 +1,22 @@
+.aboutGrid {
+    display: flex;
+    justify-content: center;
+    padding-top: 7%;
+}
+
+.aboutPhoto {
+    flex: 30%;
+    height: 80vw;
+    max-height: 400px;
+    margin: 0 6px;
+
+    @media (--sm-viewport) {
+        max-height: 450px;
+    }
+
+    @media (--md-viewport) {
+        flex: 0 1 275px;
+        height: 450px;
+        margin: 0 10px;
+    }
+}

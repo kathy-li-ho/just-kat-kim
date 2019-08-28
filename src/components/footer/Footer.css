@@ -1,5 +1,5 @@
 .footer {
-    flex: 60vw;
+    flex: 1 0 60vw;
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -7,7 +7,7 @@
     position: relative;
 
     @media (--sm-viewport) {
-        flex: 35vh;
+        flex: 1 0 35vh;
     }
 }
 

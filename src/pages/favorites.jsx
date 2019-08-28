@@ -1,9 +1,10 @@
 import React, {useLayoutEffect} from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
+import {cleanDropboxHTML, insertContent} from '../utils';
 import Layout from '../components/layout/Layout';
 
 const FavoritesPage = () => {
-    const contentHTML = useStaticQuery(
+    const dropboxHTML = useStaticQuery(
         graphql`
             query {
                 allDropboxPaperDocument(
@@ -19,23 +20,15 @@ const FavoritesPage = () => {
         `,
         []
     ).allDropboxPaperDocument.edges[0].node.content;
-
-    const contentNoLinkStyles = contentHTML.replace(
-        /style="color: #47B5FA; text-decoration: none"/g,
-        ''
+    const contentHTML = cleanDropboxHTML(dropboxHTML);
+    useLayoutEffect(() =>
+        insertContent(contentHTML, document.querySelector('#list'))
     );
 
-    useLayoutEffect(() => {
-        const mainElement = document.querySelector('#list');
-        if (!mainElement.innerHTML) {
-            mainElement.insertAdjacentHTML('afterbegin', contentNoLinkStyles);
-        }
-    });
-
     return (
-    <Layout page="favorites" pageTitle="Kat's Bag">
-        <div id="list" />
-    </Layout>
+        <Layout page="favorites" pageTitle="Kat's Bag">
+            <div id="list" />
+        </Layout>
     );
 };
 

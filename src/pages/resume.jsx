@@ -1,6 +1,6 @@
 import React, {useLayoutEffect} from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
-import {cleanDropboxHTML} from '../utils';
+import {cleanDropboxHTML, insertContent} from '../utils';
 import Layout from '../components/layout/Layout';
 
 const pdfSVG = `
@@ -31,7 +31,6 @@ const ResumePage = () => {
         `,
         []
     ).allDropboxPaperDocument.edges[0].node.content;
-
     const contentHTML = cleanDropboxHTML(dropboxHTML);
     const contentDownloadLink = contentHTML.replace(
         'www.dropbox.com',
@@ -41,14 +40,7 @@ const ResumePage = () => {
         /https:\/\/www.*(?=<\/a>)/,
         pdfSVG + 'Resume'
     );
-    const finalHTML = contentDownloadCopy;
-
-    useLayoutEffect(() => {
-        const mainElement = document.querySelector('main');
-        if (!mainElement.innerHTML) {
-            mainElement.insertAdjacentHTML('afterbegin', finalHTML);
-        }
-    });
+    useLayoutEffect(() => insertContent(contentDownloadCopy));
 
     return <Layout page="resume" pageTitle="Resume" />;
 };

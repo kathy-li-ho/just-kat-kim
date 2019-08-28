@@ -1,9 +1,10 @@
 import React, {useLayoutEffect} from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
+import {cleanDropboxHTML, insertContent} from '../utils';
 import Layout from '../components/layout/Layout';
 
 const HomePage = () => {
-    const contentHTML = useStaticQuery(
+    const dropboxHTML = useStaticQuery(
         graphql`
             query {
                 allDropboxPaperDocument(
@@ -19,13 +20,8 @@ const HomePage = () => {
         `,
         []
     ).allDropboxPaperDocument.edges[0].node.content;
-
-    useLayoutEffect(() => {
-        const mainElement = document.querySelector('main');
-        if (!mainElement.innerHTML) {
-            mainElement.insertAdjacentHTML('afterbegin', contentHTML);
-        }
-    });
+    const contentHTML = cleanDropboxHTML(dropboxHTML);
+    useLayoutEffect(() => insertContent(contentHTML));
 
     return <Layout page="home" />;
 };
