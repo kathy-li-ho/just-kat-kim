@@ -5,3 +5,9 @@ export const getValueIn = (context, ...path) => {
     }
     return value;
 };
+
+export const cleanDropboxHTML = dbstr => {
+    let cleanString = dbstr
+    cleanString = dbstr.replace(/(<div dir="auto" style="font-weight: 400;.*?<\/div>)|(dir="auto" style="line-height: 26px;" )/g, '');
+    return cleanString;
+};

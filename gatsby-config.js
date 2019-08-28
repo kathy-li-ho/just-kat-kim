@@ -25,7 +25,7 @@ module.exports = {
         {
             resolve: 'gatsby-source-dropbox-paper',
             options: {
-                access_token: `-QYqjbZms2oAAAAAAAAhk9Wp8uxi_KSlIWUmNzbC0rjyamBenc6LNWoIeLObCxtJ`,
+                access_token: `-QYqjbZms2oAAAAAAAAhnuo0RGzbl4HgmuinkVLu-142QhU38saTJ4vV931eyW83`,
                 format: 'html',
             },
         },
