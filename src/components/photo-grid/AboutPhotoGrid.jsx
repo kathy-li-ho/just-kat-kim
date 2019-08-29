@@ -8,7 +8,7 @@ const AboutPhotoGrid = () => {
     const dropbox = useStaticQuery(
         graphql`
             query {
-                allDropboxNode(filter: {path: {regex: "//about//"}}) {
+                allDropboxNode(filter: {path: {regex: "/about//"}}) {
                     edges {
                         node {
                             localFile {
