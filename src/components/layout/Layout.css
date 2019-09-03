@@ -3,6 +3,7 @@
 @custom-media --sm-viewport (min-width: 576px);
 @custom-media --md-viewport (min-width: 768px);
 @custom-media --lg-viewport (min-width: 992px);
+@custom-media --under-sm-viewport (max-width: 575px);
 @custom-media --under-lg-viewport (max-width: 991px);
 
 :root {
@@ -127,12 +128,22 @@ blockquote *:last-child {
         width: 100%;
         padding: 20px 20px 10%;
 
+        @media (--under-sm-viewport) {
+            & .ace-line img {
+                max-width: 100% !important;
+            }
+        }
+
         @media (--md-viewport) {
             padding: 30px 30px 10%;
         }
 
         @media (--lg-viewport) {
             max-width: 960px;
+        }
+
+        &:not(.about):not(.favorites) .ace-line {
+            text-align: center;
         }
     }
 }
@@ -145,9 +156,6 @@ blockquote *:last-child {
     font-size: 1.2rem;
 
     & .ace-line {
-        display: block;
-        text-align: center;
-
         &:first-child span {
             font-size: 2.5rem;
         }
@@ -188,7 +196,6 @@ blockquote *:last-child {
     & .ace-line:first-child {
         font-size: 1.5rem;
         line-height: 1.5rem;
-        text-align: center;
         padding: 0 30px 30px;
         position: relative;
 
