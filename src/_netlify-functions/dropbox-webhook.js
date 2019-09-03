@@ -1,4 +1,4 @@
-require("dotenv").load();
+require("dotenv").config();
 require("isomorphic-fetch");
 
 exports.handler = function(event, context, callback) {
