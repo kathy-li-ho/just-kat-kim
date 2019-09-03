@@ -156,7 +156,7 @@ blockquote *:last-child {
     font-size: 1.2rem;
 
     & .ace-line {
-        &:first-child span {
+        & h1 span {
             font-size: 2.5rem;
         }
 
