@@ -17,7 +17,16 @@ module.exports = {
             resolve: `gatsby-source-dropbox`,
             options: {
                 accessToken: `-QYqjbZms2oAAAAAAAAhfl7J42f4FSiJ_j0zoFlq4PenqQLtrCF0cTKQA_stOvQ9`,
-                extensions: ['.pdf', '.gif', '.jpg', '.png'],
+                extensions: [
+                    '.pdf',
+                    '.gif',
+                    '.jpg',
+                    '.png',
+                    '.avi',
+                    '.mp4',
+                    '.mov',
+                    '.mkv',
+                ],
                 path: '',
                 recursive: true,
             },
@@ -36,6 +45,7 @@ module.exports = {
             },
         },
         `gatsby-transformer-sharp`,
+        `gatsby-transformer-ffmpeg`,
         `gatsby-plugin-sharp`,
         {
             resolve: `gatsby-plugin-manifest`,
