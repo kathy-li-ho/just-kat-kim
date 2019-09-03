@@ -22,13 +22,11 @@ const FavoritesPage = () => {
     ).allDropboxPaperDocument.edges[0].node.content;
     const contentHTML = cleanDropboxHTML(dropboxHTML);
     useLayoutEffect(() =>
-        insertContent(contentHTML, document.querySelector('#list'))
+        insertContent(contentHTML)
     );
 
     return (
-        <Layout page="favorites" pageTitle="Kat's Bag">
-            <div id="list" />
-        </Layout>
+        <Layout page="favorites" pageTitle="Kat's Bag" />
     );
 };
 

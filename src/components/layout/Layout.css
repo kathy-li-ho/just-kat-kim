@@ -21,6 +21,19 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.meow,
+.resume .ace-line:first-child::before,
+.resume .ace-line:first-child::after,
+.copy {
+    font-family: 'Special Elite', serif;
+}
+
 audio,
 canvas,
 progress,
@@ -120,30 +133,33 @@ blockquote *:last-child {
 #gatsby-focus-wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     height: 100vh;
 
     & main {
         flex: 50vh;
         align-self: center;
         width: 100%;
-        padding: 20px 20px 10%;
-
-        @media (--under-sm-viewport) {
-            & .ace-line img {
-                max-width: 100% !important;
-            }
-        }
+        padding: 20px 20px;
 
         @media (--md-viewport) {
-            padding: 30px 30px 10%;
+            padding: 30px 30px;
         }
 
         @media (--lg-viewport) {
-            max-width: 960px;
+            max-width: 900px;
         }
 
-        &:not(.about):not(.favorites) .ace-line {
-            text-align: center;
+        & .ace-line > span {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            @media (--under-sm-viewport) {
+                & img {
+                    max-width: 95% !important;
+                }
+            }
         }
     }
 }
@@ -167,23 +183,12 @@ blockquote *:last-child {
 }
 
 .favorites {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    & .ace-line ul {
+        max-width: 300px;
 
-    & #list {
-        flex: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        padding-left: 20px;
-
-        @media (--sm-viewport) {
-            flex: 0 1 300px;
+        @media (--lg-viewport) {
+            margin-left: 36% !important;
         }
-    }
-
-    & .ace-line {
-        flex: 1 0 51%;
     }
 }
 
@@ -198,6 +203,7 @@ blockquote *:last-child {
         line-height: 1.5rem;
         padding: 0 30px 30px;
         position: relative;
+        text-align: center;
 
         &::before {
             content: open-quote;
@@ -212,7 +218,6 @@ blockquote *:last-child {
         &::after {
             color: gold;
             font-size: 6rem;
-            font-family: 'Special Elite', serif;
             position: absolute;
             top: 0;
             z-index: -1;
@@ -249,12 +254,11 @@ blockquote *:last-child {
 }
 
 .about {
-    font-size: 1.2rem;
+    & .ace-line span {
+        text-align: left;
+    }
 
-    @media (--md-viewport) {
-        & #bio {
-            column-count: 2;
-            column-fill: balance;
-        }
+    @media (--lg-viewport) {
+        font-size: 1.2rem;
     }
 }
