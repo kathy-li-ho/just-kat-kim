@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Admin from '../admin/Admin';
 import Header from '../header/Header';
 import SEO from '../seo/SEO';
 import Footer from '../footer/Footer';
@@ -8,6 +9,7 @@ import './Layout.css';
 
 const Layout = ({pageTitle, page, children}) => (
     <>
+        <Admin />
         <Header />
         <SEO title={pageTitle} />
         <main className={page}>{children}</main>
