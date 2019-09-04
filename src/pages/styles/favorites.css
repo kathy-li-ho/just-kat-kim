@@ -1,0 +1,9 @@
+.favorites {
+    & .ace-line ul {
+        max-width: 300px;
+
+        @media (--lg-viewport) {
+            margin-left: 36% !important;
+        }
+    }
+}

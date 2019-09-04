@@ -1,0 +1,60 @@
+.resume {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & .ace-line:first-child {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        padding: 0 30px 30px;
+        position: relative;
+        text-align: center;
+
+        &::before {
+            content: open-quote;
+            left: 0;
+        }
+        &::after {
+            content: close-quote;
+            right: 0;
+        }
+
+        &::before,
+        &::after {
+            color: gold;
+            font-size: 6rem;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+        }
+    }
+
+    & .ace-line span a[href*='esume'] {
+        background: rgba(255, 240, 90, 0.2);
+        color: gold;
+        font-size: 1.2rem;
+        text-decoration: none;
+        border: 2px solid rgba(255, 240, 90, 0.25);
+        border-radius: 5px;
+        padding: 15px;
+        transition: all 0.3s;
+
+        & svg {
+            width: 25px;
+            height: 34px;
+            margin: -5px 1ch -10px -5px;
+            box-shadow: -2px 2px 4px -4px gold;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        @media (--lg-viewport) {
+            &:hover {
+                background: rgba(255, 240, 90, 0.5);
+            }
+        }
+    }
+}

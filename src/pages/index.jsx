@@ -2,6 +2,7 @@ import React, {useLayoutEffect} from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
 import {cleanDropboxHTML, insertContent} from '../utils';
 import Layout from '../components/layout/Layout';
+import './styles/home.css';
 
 const HomePage = () => {
     const dropboxHTML = useStaticQuery(

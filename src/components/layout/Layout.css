@@ -21,12 +21,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 .meow,
 .resume .ace-line:first-child::before,
 .resume .ace-line:first-child::after,
@@ -76,28 +70,6 @@ a {
     }
 }
 
-small {
-    font-size: 0.8rem;
-}
-
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-sub {
-    bottom: -0.25em;
-}
-sup {
-    top: -0.5em;
-}
-
-figure {
-    margin: 1em 40px;
-}
-
 * {
     box-sizing: border-box;
 }
@@ -139,6 +111,9 @@ blockquote *:last-child {
     & main {
         flex: 50vh;
         align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         width: 100%;
         padding: 20px 20px;
 
@@ -148,6 +123,7 @@ blockquote *:last-child {
 
         @media (--lg-viewport) {
             max-width: 900px;
+            font-size: 1.2rem;
         }
 
         & .ace-line > span {
@@ -161,104 +137,5 @@ blockquote *:last-child {
                 }
             }
         }
-    }
-}
-
-.home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-
-    & .ace-line {
-        & h1 span {
-            font-size: 2.5rem;
-        }
-
-        & span {
-            line-height: 2;
-        }
-    }
-}
-
-.favorites {
-    & .ace-line ul {
-        max-width: 300px;
-
-        @media (--lg-viewport) {
-            margin-left: 36% !important;
-        }
-    }
-}
-
-.resume {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    & .ace-line:first-child {
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-        padding: 0 30px 30px;
-        position: relative;
-        text-align: center;
-
-        &::before {
-            content: open-quote;
-            left: 0;
-        }
-        &::after {
-            content: close-quote;
-            right: 0;
-        }
-
-        &::before,
-        &::after {
-            color: gold;
-            font-size: 6rem;
-            position: absolute;
-            top: 0;
-            z-index: -1;
-        }
-    }
-
-    & .ace-line span a[href*='esume'] {
-        background: rgba(255, 240, 90, 0.2);
-        color: gold;
-        font-size: 1.2rem;
-        text-decoration: none;
-        border: 2px solid rgba(255, 240, 90, 0.25);
-        border-radius: 5px;
-        padding: 15px;
-        transition: all 0.3s;
-
-        & svg {
-            width: 25px;
-            height: 34px;
-            margin: -5px 1ch -10px -5px;
-            box-shadow: -2px 2px 4px -4px gold;
-        }
-
-        &::before {
-            display: none;
-        }
-
-        @media (--lg-viewport) {
-            &:hover {
-                background: rgba(255, 240, 90, 0.5);
-            }
-        }
-    }
-}
-
-.about {
-    & .ace-line span {
-        text-align: left;
-    }
-
-    @media (--lg-viewport) {
-        font-size: 1.2rem;
     }
 }

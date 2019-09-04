@@ -2,6 +2,7 @@ import React, {useLayoutEffect} from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
 import {cleanDropboxHTML, insertContent} from '../utils';
 import Layout from '../components/layout/Layout';
+import './styles/resume.css';
 
 const pdfSVG = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.271 114.521">

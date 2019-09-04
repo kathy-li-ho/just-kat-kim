@@ -47,9 +47,9 @@ const Footer = ({page}) => {
     return (
         <footer className="footer">
             <Social />
-            <small className="copy">
+            <span className="copy">
                 &copy;{new Date().getFullYear()} <strong>kat kim</strong>.
-            </small>
+            </span>
             <img {...imageProps} alt="footer" />
         </footer>
     );
