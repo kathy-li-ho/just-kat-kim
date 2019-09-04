@@ -44,7 +44,18 @@ module.exports = {
                 postCssPlugins: [require(`postcss-preset-env`)({stage: 0})],
             },
         },
-        `gatsby-plugin-remove-fingerprints`,
+        {
+            resolve: "gatsby-plugin-tidy",
+            options: {
+                cleanPublic: true,
+                cleanCache: true,
+                removeHashes: true,
+                removeArtifacts: true,
+                noJsMap: true,
+                jsDir: "js",
+                cssDir: "css"
+            }
+        },
         `gatsby-transformer-ffmpeg`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
