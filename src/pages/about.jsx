@@ -8,7 +8,7 @@ const AboutPage = () => {
         graphql`
             query aboutContent {
                 allDropboxPaperDocument(
-                    filter: {id: {eq: "dc8RpIbhCX34s7NMLrXVg"}}
+                    filter: {id: {eq: "646ynJbsxA8VxCve5f9lc"}}
                 ) {
                     edges {
                         node {

@@ -9,7 +9,7 @@ const FavoritesPage = () => {
         graphql`
             query {
                 allDropboxPaperDocument(
-                    filter: {id: {eq: "1hmiDz44GUuVi0PuZTcRk"}}
+                    filter: {id: {eq: "dDaRV8fmJBkszj1kwPH2O"}}
                 ) {
                     edges {
                         node {

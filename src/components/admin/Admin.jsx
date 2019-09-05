@@ -11,7 +11,7 @@ const Admin = () => {
         if (isAdminURL && !isAdmin) {
             setIsAdmin(true);
         }
-    });
+    }, [isAdmin]);
 
     useLayoutEffect(() => {
         if (hasClicked) {

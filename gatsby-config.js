@@ -16,7 +16,7 @@ module.exports = {
         {
             resolve: `gatsby-source-dropbox`,
             options: {
-                accessToken: `-QYqjbZms2oAAAAAAAAhfl7J42f4FSiJ_j0zoFlq4PenqQLtrCF0cTKQA_stOvQ9`,
+                accessToken: `ZIkhzERy-RAAAAAAAAAAGn93tpBImYTGF2wD_1xGqh9MuOfzDcX3gBxC80s8AWiD`,
                 extensions: [
                     '.pdf',
                     '.gif',
@@ -27,14 +27,14 @@ module.exports = {
                     '.mov',
                     '.mkv',
                 ],
-                path: '',
+                path: '/site_files',
                 recursive: true,
             },
         },
         {
             resolve: 'gatsby-source-dropbox-paper',
             options: {
-                access_token: `-QYqjbZms2oAAAAAAAAhnuo0RGzbl4HgmuinkVLu-142QhU38saTJ4vV931eyW83`,
+                access_token: `ZIkhzERy-RAAAAAAAAAAG5kn00vzQhKFMZiNr9mvfW7nhGmH_MCeUDYs3iT1W2fp`,
                 format: 'html',
             },
         },

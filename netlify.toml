@@ -1,4 +1,0 @@
-[build]
-  functions = "./build-netlify-functions"
-  publish = "./public"
-  command = "npm run build"
