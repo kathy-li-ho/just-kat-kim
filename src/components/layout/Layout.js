@@ -9,8 +9,8 @@ import './Layout.css';
 
 const Layout = ({pageTitle, page, children}) => (
     <>
-        <Admin />
         <Header />
+        <Admin />
         <SEO title={pageTitle} />
         <main className={page}>{children}</main>
         <Footer page={page} />

@@ -93,35 +93,26 @@ iframe {
     padding: 0;
 }
 
-b,
-strong {
-    font-weight: bold;
-}
-
-blockquote *:last-child {
-    margin-bottom: 0;
-}
-
 #gatsby-focus-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    height: 100vh;
+    align-items:  center;
+    min-height: 100vh;
 
     & main {
-        flex: 50vh;
-        align-self: center;
+        flex: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         width: 100%;
-        padding: 20px 20px;
+        padding: 100px 20px 20px;
 
         @media (--md-viewport) {
-            padding: 30px 30px;
+            padding: 100px 30px 30px;
         }
 
         @media (--lg-viewport) {
+            padding: 30px 30px;
             max-width: 900px;
             font-size: 1.2rem;
         }
@@ -130,6 +121,7 @@ blockquote *:last-child {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            align-items: center;
 
             @media (--under-sm-viewport) {
                 & img {

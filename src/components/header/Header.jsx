@@ -49,7 +49,7 @@ const Header = () => {
     }
 
     return (
-        <header className="header">
+        <header className={cx('header', {opaque: toggleMenu})}>
             <button
                 className="menuToggle"
                 onClick={() => setToggleMenu(!toggleMenu)}

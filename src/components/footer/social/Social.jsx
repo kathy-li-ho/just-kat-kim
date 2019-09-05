@@ -23,7 +23,7 @@ const Social = () => (
                 />
             </svg>
         </a>
-        <a className="socialLink" href="https://www.instagram.com/justkatkim/">
+        <a className="socialLink" href="https://www.instagram.com/justkatkim/" target="_blank">
             <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
                 <path clipRule="evenodd" fill="none" d="M0 0h128v128H0z" />
                 <radialGradient

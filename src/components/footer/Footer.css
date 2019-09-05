@@ -1,13 +1,13 @@
 .footer {
-    flex: 1 0 60vw;
     display: flex;
     flex-direction: column;
     width: 100vw;
     overflow: hidden;
     position: relative;
+    min-height: 60vw;
 
     @media (--sm-viewport) {
-        flex: 1 0 35vh;
+        min-height: 35vh;
     }
 }
 

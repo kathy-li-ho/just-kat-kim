@@ -31,11 +31,11 @@
     }
 
     & .ace-line span a[href*='esume'] {
-        background: rgba(255, 240, 90, 0.2);
+        background: rgba(255, 215, 0, 0.1);  /* gold 10% */
         color: gold;
         font-size: 1.2rem;
         text-decoration: none;
-        border: 2px solid rgba(255, 240, 90, 0.25);
+        border: 2px solid rgba(255, 215, 0, 0.2); /* gold 20% */
         border-radius: 5px;
         padding: 15px;
         transition: all 0.3s;
@@ -44,7 +44,6 @@
             width: 25px;
             height: 34px;
             margin: -5px 1ch -10px -5px;
-            box-shadow: -2px 2px 4px -4px gold;
         }
 
         &::before {
@@ -53,7 +52,8 @@
 
         @media (--lg-viewport) {
             &:hover {
-                background: rgba(255, 240, 90, 0.5);
+                background: rgba(255, 215, 0, 0.05);  /* gold 5% */
+                border-color: rgba(255, 215, 0, 0.5);  /* gold 50% */
             }
         }
     }
