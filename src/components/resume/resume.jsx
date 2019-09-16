@@ -1,8 +1,7 @@
 import React, {useLayoutEffect} from 'react';
-import {useStaticQuery, graphql} from 'gatsby';
-import {cleanDropboxHTML, insertContent} from '../utils';
-import Layout from '../components/layout/Layout';
-import './styles/resume.css';
+import {cleanDropboxHTML, insertContent} from '../../utils';
+import Layout from '../layout/Layout';
+import './resume.css';
 
 const pdfSVG = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.271 114.521">
@@ -15,23 +14,8 @@ const pdfSVG = `
 </svg>`;
 
 const ResumePage = () => {
-    const dropboxHTML = useStaticQuery(
-        graphql`
-            query {
-                allDropboxPaperDocument(
-                    filter: {id: {eq: "xH0A4hzMEQAQrePJPx0Kl"}}
-                ) {
-                    edges {
-                        node {
-                            content
-                        }
-                    }
-                }
-            }
-        `,
-        []
-    ).allDropboxPaperDocument.edges[0].node.content;
-    const contentHTML = cleanDropboxHTML(dropboxHTML);
+
+    const contentHTML = cleanDropboxHTML('a string');
     const contentDownloadLink = contentHTML.replace(
         'www.dropbox.com',
         'dl.dropboxusercontent.com'

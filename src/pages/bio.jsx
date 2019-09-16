@@ -26,7 +26,7 @@ const AboutPage = () => {
     );
 
     return (
-        <Layout page="about" pageTitle="About" />
+        <Layout page="bio" pageTitle="About" />
     );
 };
 
