@@ -4,7 +4,7 @@
 @custom-media --md-viewport (min-width: 768px);
 @custom-media --lg-viewport (min-width: 992px);
 @custom-media --under-sm-viewport (max-width: 575px);
-@custom-media --under-lg-viewport (max-width: 991px);
+@custom-media --under-md-viewport (max-width: 767px);
 
 :root {
     --shadow-color: rgba(0, 0, 0, 0.1);
