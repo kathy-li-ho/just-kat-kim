@@ -52,7 +52,7 @@ module.exports = {
                 removeHashes: true,
                 removeArtifacts: true,
                 noJsMap: true,
-                jsDir: "js",
+                jsDir: ["js", "jsx"],
                 cssDir: "css"
             }
         },

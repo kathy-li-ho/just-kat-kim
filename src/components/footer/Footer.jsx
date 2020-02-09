@@ -44,6 +44,7 @@ const Footer = ({page}) => {
         ...generateSizes(),
     };
 
+    console.log(imageProps);
     return (
         <footer className="footer">
             <Social />
