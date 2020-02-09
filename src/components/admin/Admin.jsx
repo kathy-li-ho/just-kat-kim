@@ -2,6 +2,10 @@ import React, {useLayoutEffect, useState} from 'react';
 import cx from 'classnames';
 import './Admin.css';
 
+const mins = 1; /* update transistion in css file */
+const seconds = 6;
+const updateTime = ((mins * 60) + seconds) * 1000;
+
 const Admin = () => {
     const [hasClicked, setHasClicked] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
@@ -17,7 +21,7 @@ const Admin = () => {
         if (hasClicked) {
             const timer = setTimeout(() => {
                 window.location.reload();
-            }, 65000);
+            }, updateTime);
             return () => clearTimeout(timer);
         }
     }, [hasClicked]);
@@ -38,7 +42,7 @@ const Admin = () => {
     return (
         <div className={cx('admin', {loading: hasClicked})}>
             <button onClick={handleUpdate} className="button">
-                {hasClicked ? 'updating...' : 'update'}
+                {hasClicked ? 'updating...' : `update ~ ${mins}m ${seconds}s`}
             </button>
         </div>
     );
