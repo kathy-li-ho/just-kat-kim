@@ -5,6 +5,7 @@
     overflow: hidden;
     position: relative;
     min-height: 60vw;
+    width: 100%;
 
     @media (--sm-viewport) {
         min-height: 35vh;
