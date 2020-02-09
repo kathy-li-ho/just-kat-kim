@@ -17,23 +17,6 @@ const PortfolioPage = () => {
                     }
                 }
             }
-
-            query videos {
-                allDropboxNode(filter: {localFile: {extension: {regex: "/mov|mp4|avi|mkv/"}}}) {
-                  edges {
-                    node {
-                      localFile {
-                        childVideoFfmpeg {
-                          transcode(outputOptions: "mp4") {
-                            src
-                            originalName
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
               
         `,
         []
