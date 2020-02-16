@@ -21,10 +21,16 @@ const joinedRegex = [
 const removeRegex = new RegExp(joinedRegex, 'g');
 const cssMaxHeightRegex = new RegExp('max-height: [0-9]{1,}px', 'g');
 const cssHeightAuto = 'height: auto';
+const tooltipRegex = /{(.+): (.+)}/;
+const tooltipHTML = '<button class="tooltip">$1<span>$2</span></button>';
 
 export const cleanDropboxHTML = dbstr => {
     const cleanString = dbstr.replace(removeRegex, '');
-    const finalString = cleanString.replace(cssMaxHeightRegex, cssHeightAuto);
+    const insertTooltipString = cleanString.replace(tooltipRegex, tooltipHTML);
+    const finalString = insertTooltipString.replace(
+        cssMaxHeightRegex,
+        cssHeightAuto
+    );
     return finalString;
 };
 
