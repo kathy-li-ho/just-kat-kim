@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abel|Heebo|Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abel|Special+Elite&display=swap');
 
 @custom-media --sm-viewport (min-width: 576px);
 @custom-media --md-viewport (min-width: 768px);
@@ -16,7 +16,8 @@ body {
     height: 100%;
     width: 100%;
     color: #333;
-    font-family: 'Heebo', sans-serif;
+    font-family: 'Abel', sans-serif;
+    font-size: 1.15rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -119,14 +120,6 @@ iframe {
 
         & .ace-line {
             text-align: center;
-
-            & h1,
-            & h2,
-            & h3 {
-                & span {
-                    font-family: 'Abel', sans-serif;
-                }
-            }
 
             & > span {
                 @media (--under-sm-viewport) {
