@@ -1,0 +1,31 @@
+video {
+    width: 100%;
+}
+
+.resume {
+    background: rgba(255, 215, 0, 0.1); /* gold 10% */
+    color: gold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border: 2px solid rgba(255, 215, 0, 0.2); /* gold 20% */
+    border-radius: 5px;
+    padding: 15px;
+    transition: all 0.3s;
+
+    & svg {
+        width: 25px;
+        height: 34px;
+        margin: -5px 1ch -10px -5px;
+    }
+
+    &::before {
+        display: none;
+    }
+
+    @media (--lg-viewport) {
+        &:hover {
+            background: rgba(255, 215, 0, 0.05); /* gold 5% */
+            border-color: rgba(255, 215, 0, 0.5); /* gold 50% */
+        }
+    }
+}
