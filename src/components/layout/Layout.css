@@ -72,7 +72,7 @@ button.tooltip {
     }
 }
 
-a[target] {
+a[target]:not(.socialLink) {
     text-decoration: underline;
 }
 
