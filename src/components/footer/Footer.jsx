@@ -7,7 +7,10 @@ import './Footer.css';
 
 const transparentPNG =
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
-const path = context => getValueIn(context, 'node', 'localFile', 'childImageSharp', 'fluid') || {src: transparentPNG};
+const path = context =>
+    getValueIn(context, 'node', 'localFile', 'childImageSharp', 'fluid') || {
+        src: transparentPNG,
+    };
 
 const generateSizes = () => {
     const bps = [576, 768, 992, 1200, 1600];
@@ -26,7 +29,16 @@ const Footer = ({page}) => {
                     node {
                         localFile {
                             childImageSharp {
-                                fluid(srcSetBreakpoints: [576, 768, 992, 1200, 1600],  maxWidth: 1920) {
+                                fluid(
+                                    srcSetBreakpoints: [
+                                        576
+                                        768
+                                        992
+                                        1200
+                                        1600
+                                    ]
+                                    maxWidth: 1920
+                                ) {
                                     src
                                     srcSet
                                 }
@@ -44,7 +56,6 @@ const Footer = ({page}) => {
         ...generateSizes(),
     };
 
-    console.log(imageProps);
     return (
         <footer className="footer">
             <Social />
@@ -55,7 +66,6 @@ const Footer = ({page}) => {
         </footer>
     );
 };
-
 
 Footer.propTypes = {
     page: PropTypes.string.isRequired,
