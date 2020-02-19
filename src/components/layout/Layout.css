@@ -171,12 +171,17 @@ iframe {
 
         & .ace-line {
             text-align: center;
+            transform: scaleY(0.95);
 
             & > span {
                 @media (--under-sm-viewport) {
                     & img {
                         max-width: 95% !important;
                     }
+                }
+
+                & * {
+                    transform: scaleY(1.05);
                 }
             }
         }
