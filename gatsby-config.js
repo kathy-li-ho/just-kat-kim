@@ -1,8 +1,8 @@
 module.exports = {
     siteMetadata: {
         title: `Just Kat Kim`,
-        description: `A portfolio site`,
-        author: `Katherine Kim, Kathy Li`,
+        description: `Just Kat Kim. Your next host, actress, and/or both. Come and look around.`,
+        author: `Katherine Kim`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
