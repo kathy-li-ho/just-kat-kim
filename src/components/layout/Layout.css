@@ -45,8 +45,7 @@ progress {
     vertical-align: baseline;
 }
 
-a,
-button.tooltip {
+a {
     color: inherit;
     display: inline-block;
     padding: 0 5px;
@@ -76,36 +75,32 @@ a[target]:not(.socialLink) {
     text-decoration: underline;
 }
 
-button.tooltip {
+.tooltip {
     background: none;
     border: 0;
     font: inherit;
-    font-weight: bold;
     text-decoration: none;
 
-    & span:first-of-type {
+    /* & span:first-of-type {
         border: 5px solid transparent;
         border-top-color: black;
         top: -20%;
-    }
+    } */
 
     & span {
+        background-color: black;
         color: white;
         display: block;
         font-size: 0.9rem;
         font-style: normal;
         opacity: 0;
+        padding: 3px 5px;
         position: absolute;
         left: 50%;
-        top: -115%;
-        transform: translate(-50%, 5px);
-        transition: opacity 250ms, transform 250ms;
+        top: -30px;
+        transform: translateX(-50%) scaleY(1.05) !important;
+        transition: opacity 250ms, top 250ms;
         width: max-content;
-
-        &:nth-of-type(2) {
-            background: black;
-            padding: 3px 5px;
-        }
 
         & a::before {
             display: none;
@@ -118,7 +113,7 @@ button.tooltip {
 
     &:hover span {
         opacity: 1;
-        transform: translate(-50%, 0px);
+        top: -35px;
     }
 }
 
