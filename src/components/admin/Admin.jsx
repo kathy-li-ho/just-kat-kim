@@ -2,9 +2,9 @@ import React, {useLayoutEffect, useState} from 'react';
 import cx from 'classnames';
 import './Admin.css';
 
-const mins = 1; /* update transistion in css file */
-const seconds = 6;
-const updateTime = ((mins * 60) + seconds) * 1000;
+const mins = 2; /* update transistion in css file */
+const seconds = 30;
+const updateTime = (mins * 60 + seconds) * 1000;
 
 const Admin = () => {
     const [hasClicked, setHasClicked] = useState(false);
