@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import { PagesBlocksPhotos } from '../../.tina/__generated__/types'
+import React from 'react';
+import styled from 'styled-components';
+import {PagesBlocksPhotos} from '../../.tina/__generated__/types';
 
 interface IPhotos {
-    data: PagesBlocksPhotos
+    data: PagesBlocksPhotos;
 }
 
 const PhotosWrapper = styled.div`
@@ -14,7 +14,7 @@ const PhotosWrapper = styled.div`
         flex-direction: row;
         justify-content: space-around;
     }
-`
+`;
 
 const Photo = styled.img`
     width: 100%;
@@ -24,12 +24,22 @@ const Photo = styled.img`
     @media (min-width: 768px) {
         width: 32%;
     }
-`
+`;
 
-export const Photos = ({ data }: IPhotos) => (
-    <PhotosWrapper>
-        {data?.photos?.map(({ photo }, i) => {
-            return <Photo key={i} src={photo} alt="" />
-        })}
-    </PhotosWrapper>
-)
+export const Photos = ({data}: IPhotos) => {
+    const {photos} = data;
+    if (!photos.length) return null;
+
+    let photoArray = photos;
+    if (photos.length > 3) {
+        photos.slice(0, 3);
+    }
+
+    return (
+        <PhotosWrapper>
+            {photoArray.map(({photo}, i) => {
+                return <Photo key={i} src={photo} alt="" />;
+            })}
+        </PhotosWrapper>
+    );
+};

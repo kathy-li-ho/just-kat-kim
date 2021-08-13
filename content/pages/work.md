@@ -1,5 +1,7 @@
 ---
 blocks:
-    - footerImg: 'https://picsum.photos/1600/900'
-      _template: footerImage
+  - footerImg: >-
+      http://res.cloudinary.com/dvycu2yln/image/upload/v1628862440/work_ogwhvn.jpg
+    _template: footerImage
 ---
+

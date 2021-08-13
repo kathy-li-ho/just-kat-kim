@@ -14,6 +14,10 @@ interface IFooter {
 }
 
 export const Footer = ({data}: IFooter) => {
+    if (!data || !data.social) {
+        return null;
+    }
+
     const [bgImage, setBgImg] = useState('');
     const {gmail, instagram, imdb} = data.social;
 

@@ -8,7 +8,7 @@ import {SiteMain} from './styles';
 
 interface ILayout {
     children: React.ReactNode;
-    data?: {
+    data: {
         header: GlobalHeader;
         footer: GlobalFooter;
     };
