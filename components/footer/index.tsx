@@ -1,26 +1,26 @@
-import React, { useLayoutEffect, useState } from 'react'
-import { GmailIcon, ImdbIcon, InstagramIcon } from '../../assets/svgs'
+import React, {useEffect, useState} from 'react';
+import {GmailIcon, ImdbIcon, InstagramIcon} from '../../assets/svgs';
 import {
     FooterContainer,
     FooterCopy,
     Label,
     SocialBar,
     SocialLink,
-} from './styles'
-import { GlobalFooter } from '../../.tina/__generated__/types'
+} from './styles';
+import {GlobalFooter} from '../../.tina/__generated__/types';
 
 interface IFooter {
-    data: GlobalFooter
+    data: GlobalFooter;
 }
 
-export const Footer = ({ data }: IFooter) => {
-    const [bgImage, setBgImg] = useState('')
-    const { gmail, instagram, imdb } = data.social
+export const Footer = ({data}: IFooter) => {
+    const [bgImage, setBgImg] = useState('');
+    const {gmail, instagram, imdb} = data.social;
 
-    useLayoutEffect(() => {
-        const img = document?.getElementById('footerImg')?.dataset.img
-        setBgImg(img)
-    }, [])
+    useEffect(() => {
+        const img = document?.getElementById('footerImg')?.dataset.img;
+        setBgImg(img);
+    }, []);
 
     return (
         <FooterContainer background={bgImage}>
@@ -48,5 +48,5 @@ export const Footer = ({ data }: IFooter) => {
                 &copy;{new Date().getFullYear()} <strong>kat kim</strong>.
             </FooterCopy>
         </FooterContainer>
-    )
-}
+    );
+};
