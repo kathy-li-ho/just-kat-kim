@@ -53,6 +53,8 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.development
+.env.local
 
 # next files
 .next/
@@ -67,3 +69,5 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+.vscode/
