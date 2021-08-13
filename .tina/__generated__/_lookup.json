@@ -3,7 +3,8 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
-      "posts"
+      "global",
+      "pages"
     ]
   },
   "Node": {
@@ -23,5 +24,34 @@
     "type": "PostsConnection",
     "resolveType": "collectionDocumentList",
     "collection": "posts"
+  },
+  "GlobalDocument": {
+    "type": "GlobalDocument",
+    "resolveType": "collectionDocument",
+    "collection": "global"
+  },
+  "GlobalConnection": {
+    "type": "GlobalConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "global"
+  },
+  "PagesBlocks": {
+    "type": "PagesBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "photos": "PagesBlocksPhotos",
+      "content": "PagesBlocksContent",
+      "footerImage": "PagesBlocksFooterImage"
+    }
+  },
+  "PagesDocument": {
+    "type": "PagesDocument",
+    "resolveType": "collectionDocument",
+    "collection": "pages"
+  },
+  "PagesConnection": {
+    "type": "PagesConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "pages"
   }
 }

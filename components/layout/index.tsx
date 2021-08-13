@@ -1,20 +1,20 @@
-import React from 'react'
-import Head from 'next/head'
-import { Header } from '../header'
-import { Footer } from '../footer'
-import layoutData from '../../content/global/index.json'
-import { GlobalFooter, GlobalHeader } from '../../.tina/__generated__/types'
-import { SiteMain } from './styles'
+import React from 'react';
+import Head from 'next/head';
+import {Header} from '../header';
+import {Footer} from '../footer';
+import layoutData from '../../content/global/index.json';
+import {GlobalFooter, GlobalHeader} from '../../.tina/__generated__/types';
+import {SiteMain} from './styles';
 
 interface ILayout {
-    children: React.ReactNode
-    data: {
-        header: GlobalHeader
-        footer: GlobalFooter
-    }
+    children: React.ReactNode;
+    data?: {
+        header: GlobalHeader;
+        footer: GlobalFooter;
+    };
 }
 
-export const Layout = ({ data = layoutData, children }: ILayout) => (
+export const Layout = ({data = layoutData, children}: ILayout) => (
     <>
         <Head>
             <title>Just Kat Kim</title>
@@ -37,7 +37,7 @@ export const Layout = ({ data = layoutData, children }: ILayout) => (
         <SiteMain>{children}</SiteMain>
         <Footer data={data?.footer} />
     </>
-)
+);
 
 export const layoutQueryFragment = `
   getGlobalDocument(relativePath: "index.json") {
@@ -66,4 +66,4 @@ export const layoutQueryFragment = `
       }  
     }
   }
-`
+`;

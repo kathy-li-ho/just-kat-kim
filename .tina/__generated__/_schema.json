@@ -1,35 +1,342 @@
 {
   "collections": [
     {
-      "label": "Blog Posts",
-      "name": "posts",
-      "path": "content/posts",
+      "label": "Global",
+      "name": "global",
+      "path": "content/global",
       "fields": [
         {
-          "type": "string",
-          "label": "Title",
-          "name": "title",
+          "type": "object",
+          "label": "Header",
+          "name": "header",
+          "fields": [
+            {
+              "type": "object",
+              "label": "Nav Links",
+              "name": "nav",
+              "list": true,
+              "ui": {
+                "defaultItem": {
+                  "href": "home",
+                  "label": "Home"
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Link",
+                  "name": "href",
+                  "namespace": [
+                    "global",
+                    "header",
+                    "nav",
+                    "href"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Label",
+                  "name": "label",
+                  "namespace": [
+                    "global",
+                    "header",
+                    "nav",
+                    "label"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "header",
+                "nav"
+              ]
+            }
+          ],
           "namespace": [
-            "posts",
-            "title"
+            "global",
+            "header"
           ]
         },
         {
-          "type": "string",
-          "label": "Blog Post Body",
-          "name": "body",
-          "isBody": true,
-          "ui": {
-            "component": "textarea"
-          },
+          "type": "object",
+          "label": "Footer",
+          "name": "footer",
+          "fields": [
+            {
+              "type": "object",
+              "label": "Social Links",
+              "name": "social",
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Gmail",
+                  "name": "gmail",
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Handle",
+                      "name": "handle",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "social",
+                        "gmail",
+                        "handle"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Link",
+                      "name": "link",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "social",
+                        "gmail",
+                        "link"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "footer",
+                    "social",
+                    "gmail"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Instagram",
+                  "name": "instagram",
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Handle",
+                      "name": "handle",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "social",
+                        "instagram",
+                        "handle"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Link",
+                      "name": "link",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "social",
+                        "instagram",
+                        "link"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "footer",
+                    "social",
+                    "instagram"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "IMDb",
+                  "name": "imdb",
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Handle",
+                      "name": "handle",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "social",
+                        "imdb",
+                        "handle"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Link",
+                      "name": "link",
+                      "namespace": [
+                        "global",
+                        "footer",
+                        "social",
+                        "imdb",
+                        "link"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "footer",
+                    "social",
+                    "imdb"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "footer",
+                "social"
+              ]
+            }
+          ],
           "namespace": [
-            "posts",
-            "body"
+            "global",
+            "footer"
           ]
         }
       ],
       "namespace": [
-        "posts"
+        "global"
+      ]
+    },
+    {
+      "label": "Pages",
+      "name": "pages",
+      "path": "content/pages",
+      "fields": [
+        {
+          "type": "object",
+          "list": true,
+          "name": "blocks",
+          "label": "Sections",
+          "templates": [
+            {
+              "name": "photos",
+              "label": "Photos",
+              "ui": {
+                "defaultItem": {
+                  "items": [
+                    {
+                      "image": "https://picsum.photos/400/600"
+                    },
+                    {
+                      "image": "https://picsum.photos/400/600"
+                    },
+                    {
+                      "image": "https://picsum.photos/400/600"
+                    }
+                  ]
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Featured Photos",
+                  "name": "photos",
+                  "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "image": "https://picsum.photos/400/600"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "type": "image",
+                      "label": "Photo",
+                      "name": "photo",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "photos",
+                        "photos",
+                        "photo"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "photos",
+                    "photos"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "photos"
+              ]
+            },
+            {
+              "name": "content",
+              "label": "Content",
+              "ui": {
+                "defaultItem": {
+                  "body": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Heading",
+                  "name": "heading",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "content",
+                    "heading"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "ui": {
+                    "component": "markdown"
+                  },
+                  "label": "Body",
+                  "name": "body",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "content",
+                    "body"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "content"
+              ]
+            },
+            {
+              "name": "footerImage",
+              "label": "Footer Image",
+              "ui": "image",
+              "fields": [
+                {
+                  "type": "image",
+                  "label": "Footer Image",
+                  "name": "footerImg",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "footerImage",
+                    "footerImg"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "footerImage"
+              ]
+            }
+          ],
+          "namespace": [
+            "pages",
+            "blocks"
+          ]
+        }
+      ],
+      "namespace": [
+        "pages"
       ]
     }
   ],
