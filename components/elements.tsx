@@ -59,3 +59,17 @@ export const List = styled.ul`
     margin: auto;
     text-align: left;
 `;
+
+export const Resume = styled.a`
+    background: gold;
+    color: white;
+    font-size: 2.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 15px;
+
+    & svg {
+        height: 3.2rem;
+        margin: 0 0.5ch -8px 0;
+    }
+`;
