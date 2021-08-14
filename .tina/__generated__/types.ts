@@ -225,6 +225,12 @@ export type GlobalConnection = Connection & {
   edges?: Maybe<Array<Maybe<GlobalConnectionEdges>>>;
 };
 
+export type PagesBlocksContent = {
+  __typename?: 'PagesBlocksContent';
+  heading?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+};
+
 export type PagesBlocksPhotosPhotos = {
   __typename?: 'PagesBlocksPhotosPhotos';
   photo?: Maybe<Scalars['String']>;
@@ -235,10 +241,9 @@ export type PagesBlocksPhotos = {
   photos?: Maybe<Array<Maybe<PagesBlocksPhotosPhotos>>>;
 };
 
-export type PagesBlocksContent = {
-  __typename?: 'PagesBlocksContent';
-  heading?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+export type PagesBlocksVideo = {
+  __typename?: 'PagesBlocksVideo';
+  url?: Maybe<Scalars['String']>;
 };
 
 export type PagesBlocksFooterImage = {
@@ -246,7 +251,7 @@ export type PagesBlocksFooterImage = {
   footerImg?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocks = PagesBlocksPhotos | PagesBlocksContent | PagesBlocksFooterImage;
+export type PagesBlocks = PagesBlocksContent | PagesBlocksPhotos | PagesBlocksVideo | PagesBlocksFooterImage;
 
 export type Pages = {
   __typename?: 'Pages';
@@ -354,6 +359,11 @@ export type GlobalMutation = {
   footer?: Maybe<GlobalFooterMutation>;
 };
 
+export type PagesBlocksContentMutation = {
+  heading?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+};
+
 export type PagesBlocksPhotosPhotosMutation = {
   photo?: Maybe<Scalars['String']>;
 };
@@ -362,9 +372,8 @@ export type PagesBlocksPhotosMutation = {
   photos?: Maybe<Array<Maybe<PagesBlocksPhotosPhotosMutation>>>;
 };
 
-export type PagesBlocksContentMutation = {
-  heading?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+export type PagesBlocksVideoMutation = {
+  url?: Maybe<Scalars['String']>;
 };
 
 export type PagesBlocksFooterImageMutation = {
@@ -372,8 +381,9 @@ export type PagesBlocksFooterImageMutation = {
 };
 
 export type PagesBlocksMutation = {
-  photos?: Maybe<PagesBlocksPhotosMutation>;
   content?: Maybe<PagesBlocksContentMutation>;
+  photos?: Maybe<PagesBlocksPhotosMutation>;
+  video?: Maybe<PagesBlocksVideoMutation>;
   footerImage?: Maybe<PagesBlocksFooterImageMutation>;
 };
 

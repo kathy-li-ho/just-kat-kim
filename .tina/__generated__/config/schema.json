@@ -115,6 +115,30 @@
           "label": "Sections",
           "templates": [
             {
+              "name": "content",
+              "label": "Content",
+              "ui": {
+                "defaultItem": {
+                  "body": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Heading",
+                  "name": "heading"
+                },
+                {
+                  "type": "string",
+                  "ui": {
+                    "component": "markdown"
+                  },
+                  "label": "Body",
+                  "name": "body"
+                }
+              ]
+            },
+            {
               "name": "photos",
               "label": "Photos",
               "ui": {
@@ -154,26 +178,18 @@
               ]
             },
             {
-              "name": "content",
-              "label": "Content",
+              "name": "video",
+              "label": "Video",
               "ui": {
                 "defaultItem": {
-                  "body": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede."
+                  "url": "https://youtu.be/3xg5sDPr_1M"
                 }
               },
               "fields": [
                 {
                   "type": "string",
-                  "label": "Heading",
-                  "name": "heading"
-                },
-                {
-                  "type": "string",
-                  "ui": {
-                    "component": "markdown"
-                  },
-                  "label": "Body",
-                  "name": "body"
+                  "label": "Video URL",
+                  "name": "url"
                 }
               ]
             },

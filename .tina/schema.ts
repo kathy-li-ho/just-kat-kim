@@ -59,6 +59,23 @@ const contentBlockSchema = {
     ],
 };
 
+const videoSchema = {
+    name: 'video',
+    label: 'Video',
+    ui: {
+        defaultItem: {
+            url: 'https://youtu.be/3xg5sDPr_1M',
+        },
+    },
+    fields: [
+        {
+            type: 'string',
+            label: 'Video URL',
+            name: 'url',
+        },
+    ],
+};
+
 const footerImageSchema = {
     name: 'footerImage',
     label: 'Footer Image',
@@ -189,8 +206,9 @@ export default defineSchema({
                     label: 'Sections',
                     // @ts-ignore
                     templates: [
-                        photoBlockShema,
                         contentBlockSchema,
+                        photoBlockShema,
+                        videoSchema,
                         footerImageSchema,
                     ],
                 },

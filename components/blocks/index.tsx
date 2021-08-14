@@ -4,6 +4,7 @@ import {Content} from './content';
 import {Photos} from './photos';
 import styled from 'styled-components';
 import {FooterImage} from './footer';
+import {Video} from './video';
 
 const Block = styled.section`
     font-family: 'Abel', sans-serif;
@@ -33,6 +34,12 @@ export const Blocks = (props: Pages) => {
                               return (
                                   <Block key={i + block.__typename}>
                                       <Photos data={block} />
+                                  </Block>
+                              );
+                          case 'PagesBlocksVideo':
+                              return (
+                                  <Block key={i + block.__typename}>
+                                      <Video data={block} />
                                   </Block>
                               );
                           case 'PagesBlocksFooterImage':

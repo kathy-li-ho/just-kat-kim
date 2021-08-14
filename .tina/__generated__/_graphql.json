@@ -1763,6 +1763,47 @@
       "directives": [],
       "name": {
         "kind": "Name",
+        "value": "PagesBlocksContent"
+      },
+      "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "heading"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "body"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ObjectTypeDefinition",
+      "interfaces": [],
+      "directives": [],
+      "name": {
+        "kind": "Name",
         "value": "PagesBlocksPhotosPhotos"
       },
       "fields": [
@@ -1818,29 +1859,14 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksContent"
+        "value": "PagesBlocksVideo"
       },
       "fields": [
         {
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "heading"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "body"
+            "value": "url"
           },
           "arguments": [],
           "type": {
@@ -1891,6 +1917,13 @@
           "kind": "NamedType",
           "name": {
             "kind": "Name",
+            "value": "PagesBlocksContent"
+          }
+        },
+        {
+          "kind": "NamedType",
+          "name": {
+            "kind": "Name",
             "value": "PagesBlocksPhotos"
           }
         },
@@ -1898,7 +1931,7 @@
           "kind": "NamedType",
           "name": {
             "kind": "Name",
-            "value": "PagesBlocksContent"
+            "value": "PagesBlocksVideo"
           }
         },
         {
@@ -2764,6 +2797,43 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
+        "value": "PagesBlocksContentMutation"
+      },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "heading"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "body"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
+      "name": {
+        "kind": "Name",
         "value": "PagesBlocksPhotosPhotosMutation"
       },
       "fields": [
@@ -2813,28 +2883,14 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksContentMutation"
+        "value": "PagesBlocksVideoMutation"
       },
       "fields": [
         {
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "heading"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "body"
+            "value": "url"
           },
           "type": {
             "kind": "NamedType",
@@ -2880,6 +2936,20 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
+            "value": "content"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "PagesBlocksContentMutation"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
             "value": "photos"
           },
           "type": {
@@ -2894,13 +2964,13 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "content"
+            "value": "video"
           },
           "type": {
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "PagesBlocksContentMutation"
+              "value": "PagesBlocksVideoMutation"
             }
           }
         },

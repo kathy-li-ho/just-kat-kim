@@ -39,8 +39,9 @@
     "type": "PagesBlocks",
     "resolveType": "unionData",
     "typeMap": {
-      "photos": "PagesBlocksPhotos",
       "content": "PagesBlocksContent",
+      "photos": "PagesBlocksPhotos",
+      "video": "PagesBlocksVideo",
       "footerImage": "PagesBlocksFooterImage"
     }
   },
