@@ -4,6 +4,7 @@ import {useRouter} from 'next/router';
 import {HeaderWrapper, MenuButton, Nav, NavLabel, Stamp} from './styles';
 import {MenuIcon} from '../../assets/svgs';
 import {GlobalHeader} from '../../.tina/__generated__/types';
+import {useEffect} from 'react';
 
 interface IHeader {
     data: GlobalHeader;
@@ -16,6 +17,12 @@ export const Header = ({data}: IHeader) => {
 
     const router = useRouter();
     const [toggleMenu, setToggleMenu] = useState(false);
+
+    useEffect(() => {
+        if (toggleMenu) {
+            setToggleMenu(false);
+        }
+    }, [router.asPath]);
 
     return (
         <HeaderWrapper isOpaque={toggleMenu}>

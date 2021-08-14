@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const HighlighterLink = styled.a`
     color: black;
@@ -19,13 +19,13 @@ export const HighlighterLink = styled.a`
         height: 100%;
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
         &:hover::before {
             width: 100%;
             transition: width 0.3s;
         }
     }
-`
+`;
 export const TooltipLink = styled(HighlighterLink)`
     background: none;
     border: 0;
@@ -52,10 +52,10 @@ export const TooltipLink = styled(HighlighterLink)`
         opacity: 1;
         top: -35px;
     }
-`
+`;
 
 export const List = styled.ul`
     max-width: 400px;
     margin: auto;
     text-align: left;
-`
+`;

@@ -1,14 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {GmailIcon, ImdbIcon, InstagramIcon} from '../../assets/svgs';
 import {
-    FooterContainer,
     FooterCopy,
+    FooterWrapper,
     Label,
     SocialBar,
     SocialLink,
 } from './styles';
 import {GlobalFooter} from '../../.tina/__generated__/types';
-import {useRouter} from 'next/router';
 
 interface IFooter {
     data: GlobalFooter;
@@ -18,19 +17,11 @@ export const Footer = ({data}: IFooter) => {
     if (!data || !data.social) {
         return null;
     }
-    const router = useRouter();
-    const [bgImage, setBgImg] = useState('');
-    const [counter, setCounter] = useState(0);
+
     const {gmail, instagram, imdb} = data.social;
 
-    useEffect(() => {
-        const img = document?.getElementById('footerImg')?.dataset.img;
-        setBgImg(img);
-        setCounter(counter + 1);
-    }, [router.asPath, counter]);
-
     return (
-        <FooterContainer background={bgImage}>
+        <FooterWrapper>
             <SocialBar>
                 {gmail && (
                     <SocialLink href={gmail.link} target="_blank">
@@ -54,6 +45,6 @@ export const Footer = ({data}: IFooter) => {
             <FooterCopy>
                 &copy;{new Date().getFullYear()} <strong>kat kim</strong>.
             </FooterCopy>
-        </FooterContainer>
+        </FooterWrapper>
     );
 };

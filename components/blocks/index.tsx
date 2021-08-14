@@ -1,14 +1,21 @@
-import React from 'react'
-import type { Pages } from '../../.tina/__generated__/types'
-import { Content } from './content'
-import { Photos } from './photos'
-import styled from 'styled-components'
+import React from 'react';
+import type {Pages} from '../../.tina/__generated__/types';
+import {Content} from './content';
+import {Photos} from './photos';
+import styled from 'styled-components';
+import {FooterImage} from './footer';
 
 const Block = styled.section`
     font-family: 'Abel', sans-serif;
+    font-size: 2rem;
     text-align: center;
-    margin-bottom: 50px;
-`
+    margin: 0 auto 50px;
+    padding: 0 20px;
+
+    @media (min-width: 768px) {
+        max-width: 900px;
+    }
+`;
 
 export const Blocks = (props: Pages) => {
     return (
@@ -21,26 +28,25 @@ export const Blocks = (props: Pages) => {
                                   <Block key={i + block.__typename}>
                                       <Content data={block} />
                                   </Block>
-                              )
+                              );
                           case 'PagesBlocksPhotos':
                               return (
                                   <Block key={i + block.__typename}>
                                       <Photos data={block} />
                                   </Block>
-                              )
+                              );
                           case 'PagesBlocksFooterImage':
                               return (
-                                  <div
+                                  <FooterImage
                                       key={i + block.__typename}
-                                      id="footerImg"
-                                      data-img={block.footerImg}
-                                  ></div>
-                              )
+                                      data={block}
+                                  />
+                              );
                           default:
-                              return null
+                              return null;
                       }
                   })
                 : null}
         </>
-    )
-}
+    );
+};
