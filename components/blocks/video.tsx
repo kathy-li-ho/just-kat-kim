@@ -10,7 +10,7 @@ export const Video = ({data}: IVideo) => {
     const canPlayURL = ReactPlayer.canPlay(data.url);
 
     if (!canPlayURL) {
-        return <p>Cannot play video from this url!</p>;
+        return <p>Cannot play video from this url! {data.url}</p>;
     }
 
     return (

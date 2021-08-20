@@ -69,7 +69,7 @@ const videoSchema = {
     },
     fields: [
         {
-            type: 'string',
+            type: 'image',
             label: 'Video URL',
             name: 'url',
         },
