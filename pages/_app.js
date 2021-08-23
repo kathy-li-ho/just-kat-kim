@@ -2,25 +2,13 @@ import '../styles.css';
 import dynamic from 'next/dynamic';
 import {TinaEditProvider} from 'tinacms/dist/edit-state';
 import {Layout} from '../components/layout';
-import {GithubClient} from 'react-tinacms-github';
-import {NextGithubMediaStore} from 'next-tinacms-github';
+import {TinaCloudCloudinaryMediaStore} from 'next-tinacms-cloudinary';
 
 const TinaCMS = dynamic(() => import('tinacms'), {ssr: false});
+
 const NEXT_PUBLIC_TINA_CLIENT_ID = process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
 const NEXT_PUBLIC_USE_LOCAL_CLIENT =
     process.env.NEXT_PUBLIC_USE_LOCAL_CLIENT || 0;
-
-const githubClient = new GithubClient({
-    proxy: '/api/proxy-github',
-    authCallbackRoute: '/api/create-github-access-token',
-    clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
-    baseRepoFullName: process.env.NEXT_PUBLIC_REPO_FULL_NAME,
-});
-
-console.log(
-    process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
-    process.env.NEXT_PUBLIC_REPO_FULL_NAME
-);
 
 const App = ({Component, pageProps}) => (
     <>
@@ -28,19 +16,18 @@ const App = ({Component, pageProps}) => (
             showEditButton={true}
             editMode={
                 <TinaCMS
-                    branch="master"
+                    branch={NEXT_PUBLIC_BASE_BRANCH}
                     clientId={NEXT_PUBLIC_TINA_CLIENT_ID}
                     isLocalClient={Boolean(
                         Number(NEXT_PUBLIC_USE_LOCAL_CLIENT)
                     )}
-                    mediaStore={NextGithubMediaStore}
+                    mediaStore={TinaCloudCloudinaryMediaStore}
                     cmsCallback={(cms) => {
                         import('react-tinacms-editor').then(
                             ({MarkdownFieldPlugin}) => {
                                 cms.plugins.add(MarkdownFieldPlugin);
                             }
                         );
-                        cms.registerApi('github', githubClient);
                     }}
                     /**
                      * Treat the Global collection as a global form
