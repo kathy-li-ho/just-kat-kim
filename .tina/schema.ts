@@ -34,6 +34,36 @@ const photoBlockShema = {
     ],
 };
 
+const galleryBlockShema = {
+    name: 'gallery',
+    label: 'Gallery',
+    ui: {
+        defaultItem: {
+            items: [defaultPhoto, defaultPhoto, defaultPhoto, defaultPhoto],
+        },
+    },
+    fields: [
+        {
+            type: 'object',
+            label: 'Gallery',
+            name: 'gallery',
+            list: true,
+            ui: {
+                defaultItem: {
+                    ...defaultPhoto,
+                },
+            },
+            fields: [
+                {
+                    type: 'image',
+                    label: 'Photo',
+                    name: 'photo',
+                },
+            ],
+        },
+    ],
+};
+
 const contentBlockSchema = {
     name: 'content',
     label: 'Content',
@@ -208,6 +238,7 @@ export default defineSchema({
                     templates: [
                         contentBlockSchema,
                         photoBlockShema,
+                        galleryBlockShema,
                         videoSchema,
                         footerImageSchema,
                     ],

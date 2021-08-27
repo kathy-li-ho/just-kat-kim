@@ -41,6 +41,7 @@
     "typeMap": {
       "content": "PagesBlocksContent",
       "photos": "PagesBlocksPhotos",
+      "gallery": "PagesBlocksGallery",
       "video": "PagesBlocksVideo",
       "footerImage": "PagesBlocksFooterImage"
     }

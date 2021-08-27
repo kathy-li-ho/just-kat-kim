@@ -178,6 +178,48 @@
               ]
             },
             {
+              "name": "gallery",
+              "label": "Gallery",
+              "ui": {
+                "defaultItem": {
+                  "items": [
+                    {
+                      "image": "https://picsum.photos/400/600"
+                    },
+                    {
+                      "image": "https://picsum.photos/400/600"
+                    },
+                    {
+                      "image": "https://picsum.photos/400/600"
+                    },
+                    {
+                      "image": "https://picsum.photos/400/600"
+                    }
+                  ]
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Gallery",
+                  "name": "gallery",
+                  "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "image": "https://picsum.photos/400/600"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "type": "image",
+                      "label": "Photo",
+                      "name": "photo"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "name": "video",
               "label": "Video",
               "ui": {
