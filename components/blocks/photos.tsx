@@ -28,7 +28,7 @@ const Photo = styled.img`
 
 export const Photos = ({data}: IPhotos) => {
     const {photos} = data;
-    if (!photos.length) return null;
+    if (!photos?.length) return <>Add up to three photos</>;
 
     let photoArray = photos;
     if (photos.length > 3) {

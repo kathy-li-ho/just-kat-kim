@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import {PagesBlocksPhotos} from '../../.tina/__generated__/types';
+import {
+    PagesBlocksGallery,
+    PagesBlocksPhotos,
+} from '../../.tina/__generated__/types';
 
-interface IPhotos {
-    data: PagesBlocksPhotos;
+interface IGallery {
+    data: PagesBlocksGallery;
 }
 
 const GalleryWrapper = styled.div`
@@ -26,13 +29,13 @@ const Photo = styled.img`
     }
 `;
 
-export const Photos = ({data}: IPhotos) => {
-    const {photos} = data;
-    if (!photos.length) return null;
+export const Gallery = ({data}: IGallery) => {
+    const {gallery} = data;
+    if (!gallery?.length) return <>Add some photos!</>;
 
     return (
         <GalleryWrapper>
-            {photos.map(({photo}, i) => {
+            {gallery.map(({photo}, i) => {
                 return <Photo key={i} src={photo} alt="" />;
             })}
         </GalleryWrapper>
