@@ -253,15 +253,15 @@
               "label": "Photos",
               "ui": {
                 "defaultItem": {
-                  "items": [
+                  "photos": [
                     {
-                      "image": "https://picsum.photos/400/600"
+                      "photo": "https://picsum.photos/400/600"
                     },
                     {
-                      "image": "https://picsum.photos/400/600"
+                      "photo": "https://picsum.photos/400/600"
                     },
                     {
-                      "image": "https://picsum.photos/400/600"
+                      "photo": "https://picsum.photos/400/600"
                     }
                   ]
                 }
@@ -274,7 +274,9 @@
                   "list": true,
                   "ui": {
                     "defaultItem": {
-                      "image": "https://picsum.photos/400/600"
+                      "photo": {
+                        "photo": "https://picsum.photos/400/600"
+                      }
                     }
                   },
                   "fields": [

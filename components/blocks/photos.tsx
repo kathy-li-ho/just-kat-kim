@@ -32,12 +32,17 @@ const Photo = styled.img`
     }
 `;
 
-export const Photos = ({data}: IPhotos) => (
-    <PhotosWrapper isGallery={data.photos.length > 3}>
-        {data.photos.length
-            ? data.photos.map(({photo}, i) => (
-                  <Photo key={i} src={photo} alt="" />
-              ))
-            : 'Please add at least three photos'}
-    </PhotosWrapper>
-);
+export const Photos = ({data}: IPhotos) => {
+    const {photos} = data;
+    const numPhotos = photos?.length;
+
+    return (
+        <PhotosWrapper isGallery={numPhotos > 3}>
+            {numPhotos
+                ? photos.map(({photo}, i) => (
+                      <Photo key={i} src={photo} alt="" />
+                  ))
+                : 'Please add at least three photos'}
+        </PhotosWrapper>
+    );
+};
