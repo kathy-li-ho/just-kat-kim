@@ -241,16 +241,6 @@ export type PagesBlocksPhotos = {
   photos?: Maybe<Array<Maybe<PagesBlocksPhotosPhotos>>>;
 };
 
-export type PagesBlocksGalleryGallery = {
-  __typename?: 'PagesBlocksGalleryGallery';
-  photo?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksGallery = {
-  __typename?: 'PagesBlocksGallery';
-  gallery?: Maybe<Array<Maybe<PagesBlocksGalleryGallery>>>;
-};
-
 export type PagesBlocksVideo = {
   __typename?: 'PagesBlocksVideo';
   url?: Maybe<Scalars['String']>;
@@ -261,7 +251,7 @@ export type PagesBlocksFooterImage = {
   footerImg?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocks = PagesBlocksContent | PagesBlocksPhotos | PagesBlocksGallery | PagesBlocksVideo | PagesBlocksFooterImage;
+export type PagesBlocks = PagesBlocksContent | PagesBlocksPhotos | PagesBlocksVideo | PagesBlocksFooterImage;
 
 export type Pages = {
   __typename?: 'Pages';
@@ -382,14 +372,6 @@ export type PagesBlocksPhotosMutation = {
   photos?: Maybe<Array<Maybe<PagesBlocksPhotosPhotosMutation>>>;
 };
 
-export type PagesBlocksGalleryGalleryMutation = {
-  photo?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksGalleryMutation = {
-  gallery?: Maybe<Array<Maybe<PagesBlocksGalleryGalleryMutation>>>;
-};
-
 export type PagesBlocksVideoMutation = {
   url?: Maybe<Scalars['String']>;
 };
@@ -401,7 +383,6 @@ export type PagesBlocksFooterImageMutation = {
 export type PagesBlocksMutation = {
   content?: Maybe<PagesBlocksContentMutation>;
   photos?: Maybe<PagesBlocksPhotosMutation>;
-  gallery?: Maybe<PagesBlocksGalleryMutation>;
   video?: Maybe<PagesBlocksVideoMutation>;
   footerImage?: Maybe<PagesBlocksFooterImageMutation>;
 };

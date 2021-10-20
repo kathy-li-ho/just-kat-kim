@@ -148,14 +148,6 @@ type PagesBlocksPhotos {
   photos: [PagesBlocksPhotosPhotos]
 }
 
-type PagesBlocksGalleryGallery {
-  photo: String
-}
-
-type PagesBlocksGallery {
-  gallery: [PagesBlocksGalleryGallery]
-}
-
 type PagesBlocksVideo {
   url: String
 }
@@ -164,7 +156,7 @@ type PagesBlocksFooterImage {
   footerImg: String
 }
 
-union PagesBlocks = PagesBlocksContent | PagesBlocksPhotos | PagesBlocksGallery | PagesBlocksVideo | PagesBlocksFooterImage
+union PagesBlocks = PagesBlocksContent | PagesBlocksPhotos | PagesBlocksVideo | PagesBlocksFooterImage
 
 type Pages {
   blocks: [PagesBlocks]
@@ -254,14 +246,6 @@ input PagesBlocksPhotosMutation {
   photos: [PagesBlocksPhotosPhotosMutation]
 }
 
-input PagesBlocksGalleryGalleryMutation {
-  photo: String
-}
-
-input PagesBlocksGalleryMutation {
-  gallery: [PagesBlocksGalleryGalleryMutation]
-}
-
 input PagesBlocksVideoMutation {
   url: String
 }
@@ -273,7 +257,6 @@ input PagesBlocksFooterImageMutation {
 input PagesBlocksMutation {
   content: PagesBlocksContentMutation
   photos: PagesBlocksPhotosMutation
-  gallery: PagesBlocksGalleryMutation
   video: PagesBlocksVideoMutation
   footerImage: PagesBlocksFooterImageMutation
 }

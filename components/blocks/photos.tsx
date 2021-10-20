@@ -6,40 +6,38 @@ interface IPhotos {
     data: PagesBlocksPhotos;
 }
 
+interface IPhotosProps {
+    isGallery?: boolean;
+}
+
 const PhotosWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
     @media (min-width: 768px) {
         flex-direction: row;
+        flex-wrap: ${(props: IPhotosProps) =>
+            props.isGallery ? 'wrap' : 'no-wrap'};
         justify-content: space-around;
     }
 `;
 
 const Photo = styled.img`
-    width: 100%;
+    width: ${(props: IPhotosProps) => (props.isGallery ? '48%' : '100%')};
     height: auto;
     margin: 10px 0;
 
     @media (min-width: 768px) {
-        width: 32%;
+        width: ${(props: IPhotosProps) => (props.isGallery ? '24%' : '32%')};
     }
 `;
 
-export const Photos = ({data}: IPhotos) => {
-    const {photos} = data;
-    if (!photos?.length) return <>Add up to three photos</>;
-
-    let photoArray = photos;
-    if (photos.length > 3) {
-        photos.slice(0, 3);
-    }
-
-    return (
-        <PhotosWrapper>
-            {photoArray.map(({photo}, i) => {
-                return <Photo key={i} src={photo} alt="" />;
-            })}
-        </PhotosWrapper>
-    );
-};
+export const Photos = ({data}: IPhotos) => (
+    <PhotosWrapper isGallery={data.photos.length > 3}>
+        {data.photos.length
+            ? data.photos.map(({photo}, i) => (
+                  <Photo key={i} src={photo} alt="" />
+              ))
+            : 'Please add at least three photos'}
+    </PhotosWrapper>
+);
