@@ -25,36 +25,15 @@
                 {
                   "type": "string",
                   "label": "Link",
-                  "name": "href",
-                  "namespace": [
-                    "global",
-                    "header",
-                    "nav",
-                    "href"
-                  ]
+                  "name": "href"
                 },
                 {
                   "type": "string",
                   "label": "Label",
-                  "name": "label",
-                  "namespace": [
-                    "global",
-                    "header",
-                    "nav",
-                    "label"
-                  ]
+                  "name": "label"
                 }
-              ],
-              "namespace": [
-                "global",
-                "header",
-                "nav"
               ]
             }
-          ],
-          "namespace": [
-            "global",
-            "header"
           ]
         },
         {
@@ -75,33 +54,13 @@
                     {
                       "type": "string",
                       "label": "Handle",
-                      "name": "handle",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "gmail",
-                        "handle"
-                      ]
+                      "name": "handle"
                     },
                     {
                       "type": "string",
                       "label": "Link",
-                      "name": "link",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "gmail",
-                        "link"
-                      ]
+                      "name": "link"
                     }
-                  ],
-                  "namespace": [
-                    "global",
-                    "footer",
-                    "social",
-                    "gmail"
                   ]
                 },
                 {
@@ -112,33 +71,13 @@
                     {
                       "type": "string",
                       "label": "Handle",
-                      "name": "handle",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "instagram",
-                        "handle"
-                      ]
+                      "name": "handle"
                     },
                     {
                       "type": "string",
                       "label": "Link",
-                      "name": "link",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "instagram",
-                        "link"
-                      ]
+                      "name": "link"
                     }
-                  ],
-                  "namespace": [
-                    "global",
-                    "footer",
-                    "social",
-                    "instagram"
                   ]
                 },
                 {
@@ -149,51 +88,19 @@
                     {
                       "type": "string",
                       "label": "Handle",
-                      "name": "handle",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "imdb",
-                        "handle"
-                      ]
+                      "name": "handle"
                     },
                     {
                       "type": "string",
                       "label": "Link",
-                      "name": "link",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "imdb",
-                        "link"
-                      ]
+                      "name": "link"
                     }
-                  ],
-                  "namespace": [
-                    "global",
-                    "footer",
-                    "social",
-                    "imdb"
                   ]
                 }
-              ],
-              "namespace": [
-                "global",
-                "footer",
-                "social"
               ]
             }
-          ],
-          "namespace": [
-            "global",
-            "footer"
           ]
         }
-      ],
-      "namespace": [
-        "global"
       ]
     },
     {
@@ -219,13 +126,7 @@
                 {
                   "type": "string",
                   "label": "Heading",
-                  "name": "heading",
-                  "namespace": [
-                    "pages",
-                    "blocks",
-                    "content",
-                    "heading"
-                  ]
+                  "name": "heading"
                 },
                 {
                   "type": "string",
@@ -233,19 +134,8 @@
                     "component": "markdown"
                   },
                   "label": "Body",
-                  "name": "body",
-                  "namespace": [
-                    "pages",
-                    "blocks",
-                    "content",
-                    "body"
-                  ]
+                  "name": "body"
                 }
-              ],
-              "namespace": [
-                "pages",
-                "blocks",
-                "content"
               ]
             },
             {
@@ -283,28 +173,10 @@
                     {
                       "type": "image",
                       "label": "Photo",
-                      "name": "photo",
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "photos",
-                        "photos",
-                        "photo"
-                      ]
+                      "name": "photo"
                     }
-                  ],
-                  "namespace": [
-                    "pages",
-                    "blocks",
-                    "photos",
-                    "photos"
                   ]
                 }
-              ],
-              "namespace": [
-                "pages",
-                "blocks",
-                "photos"
               ]
             },
             {
@@ -319,19 +191,8 @@
                 {
                   "type": "string",
                   "label": "Video URL",
-                  "name": "url",
-                  "namespace": [
-                    "pages",
-                    "blocks",
-                    "video",
-                    "url"
-                  ]
+                  "name": "url"
                 }
-              ],
-              "namespace": [
-                "pages",
-                "blocks",
-                "video"
               ]
             },
             {
@@ -342,32 +203,13 @@
                 {
                   "type": "image",
                   "label": "Footer Image",
-                  "name": "footerImg",
-                  "namespace": [
-                    "pages",
-                    "blocks",
-                    "footerImage",
-                    "footerImg"
-                  ]
+                  "name": "footerImg"
                 }
-              ],
-              "namespace": [
-                "pages",
-                "blocks",
-                "footerImage"
               ]
             }
-          ],
-          "namespace": [
-            "pages",
-            "blocks"
           ]
         }
-      ],
-      "namespace": [
-        "pages"
       ]
     }
-  ],
-  "namespace": []
+  ]
 }

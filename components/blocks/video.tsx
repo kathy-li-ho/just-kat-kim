@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/vimeo';
 import {PagesBlocksVideo} from '../../.tina/__generated__/types';
 
 interface IVideo {

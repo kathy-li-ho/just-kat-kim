@@ -1,7 +1,7 @@
 import {defineSchema} from '@tinacms/cli';
 
 const defaultPhoto = {
-    photo: 'https://dummyimage.com/400x600/efefef/dddddd.jpg&text=+=%5E%5E=,
+    photo: 'https://dummyimage.com/400x600/efefef/dddddd.jpg&text=+=%5E%5E=',
 };
 
 const photoBlockShema = {
@@ -69,7 +69,7 @@ const videoSchema = {
     },
     fields: [
         {
-            type: 'image',
+            type: 'string',
             label: 'Video URL',
             name: 'url',
         },
