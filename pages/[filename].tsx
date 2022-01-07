@@ -1,15 +1,15 @@
-import { getStaticPropsForTina, staticRequest } from 'tinacms'
-import { Blocks } from '../components/blocks'
-import { layoutQueryFragment } from '../components/layout'
-import type { PagesDocument } from '../.tina/__generated__/types'
+import {getStaticPropsForTina, staticRequest} from 'tinacms';
+import {Blocks} from '../components/blocks';
+import {layoutQueryFragment} from '../components/layout';
+import type {PagesDocument} from '../.tina/__generated__/types';
 
 export default function HomePage(
     props: AsyncReturnType<typeof getStaticProps>['props']
 ) {
-    return <Blocks {...props.data.getPagesDocument.data} />
+    return <Blocks {...props.data.getPagesDocument.data} />;
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({params}) => {
     const tinaProps = (await getStaticPropsForTina({
         query: `#graphql
       query ContentQuery($relativePath: String!) {
@@ -38,15 +38,15 @@ export const getStaticProps = async ({ params }) => {
         }
       }
   `,
-        variables: { relativePath: `${params.filename}.md` },
-    })) as { data: { getPagesDocument: PagesDocument } }
+        variables: {relativePath: `${params.filename}.md`},
+    })) as {data: {getPagesDocument: PagesDocument}};
 
     return {
         props: {
             ...tinaProps,
         },
-    }
-}
+    };
+};
 
 export const getStaticPaths = async () => {
     const pagesListData = (await staticRequest({
@@ -63,14 +63,14 @@ export const getStaticPaths = async () => {
         }
       }
     `,
-    })) as any
+    })) as any;
     return {
         paths: pagesListData.getPagesList.edges.map((page) => ({
-            params: { filename: page.node.sys.filename },
+            params: {filename: page.node.sys.filename},
         })),
         fallback: false,
-    }
-}
+    };
+};
 
 export type AsyncReturnType<T extends (...args: any) => Promise<any>> =
-    T extends (...args: any) => Promise<infer R> ? R : any
+    T extends (...args: any) => Promise<infer R> ? R : any;

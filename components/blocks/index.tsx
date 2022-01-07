@@ -3,7 +3,7 @@ import type {Pages} from '../../.tina/__generated__/types';
 import {Content} from './content';
 import {Photos} from './photos';
 import styled from 'styled-components';
-import {FooterImage} from './footer';
+import {Footer} from './footer';
 import {Video} from './video';
 
 const Block = styled.section`
@@ -44,7 +44,7 @@ export const Blocks = (props: Pages) => {
                               );
                           case 'PagesBlocksFooterImage':
                               return (
-                                  <FooterImage
+                                  <Footer
                                       key={i + block.__typename}
                                       data={block}
                                   />

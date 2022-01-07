@@ -1,12 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Head from 'next/head';
 import {Header} from '../header';
-import {Footer} from '../footer';
 import layoutData from '../../content/global/index.json';
 import {GlobalFooter, GlobalHeader} from '../../.tina/__generated__/types';
-import {SiteMain} from './styles';
-import {footerId} from '../blocks/footer';
-import {useRouter} from 'next/router';
+import {ContentWrapper, SiteWrapper} from './styles';
 
 interface ILayout {
     children: React.ReactNode;
@@ -35,9 +32,11 @@ export const Layout = ({data = layoutData, children}: ILayout) => (
                 rel="stylesheet"
             />
         </Head>
-        <Header data={data?.header} />
-        <SiteMain>{children}</SiteMain>
-        <Footer data={data?.footer} />
+
+        <SiteWrapper>
+            <Header data={data?.header} />
+            <ContentWrapper>{children}</ContentWrapper>
+        </SiteWrapper>
     </>
 );
 
@@ -50,22 +49,6 @@ export const layoutQueryFragment = `
           label
         }
       }
-      footer {
-        social {
-          gmail {
-            handle
-            link
-          }
-          instagram {
-            handle
-            link
-          }
-          imdb {
-            handle
-            link
-          }
-        }
-      }  
     }
   }
 `;

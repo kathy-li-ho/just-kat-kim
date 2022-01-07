@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import { HighlighterLink } from '../elements'
+import styled from 'styled-components';
+import {HighlighterLink} from '../elements';
 
 export const HeaderWrapper = styled.header`
-    background: ${(props: { isOpaque: boolean }) =>
+    background: ${(props: {isOpaque: boolean}) =>
         props.isOpaque
             ? 'white'
             : 'linear-gradient(rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%)'};
@@ -15,7 +15,7 @@ export const HeaderWrapper = styled.header`
         position: static;
         margin: 30px 0;
     }
-`
+`;
 
 export const Stamp = styled.a`
     font-family: 'Special Elite', serif;
@@ -29,14 +29,17 @@ export const Stamp = styled.a`
         top: 7px;
         left: 40px;
     }
-`
+`;
+
+export const menuButtonHeight = '60px';
+
 export const MenuButton = styled.button`
     background: gold;
     border-width: 0 6px 6px;
     border-style: double;
     border-color: lemonchiffon;
     box-shadow: 0 0 5px 1px var(--shadow-color);
-    height: 60px;
+    height: ${menuButtonHeight};
     width: 50px;
     margin: 0 10px;
     padding: 20px 0 0;
@@ -52,7 +55,7 @@ export const MenuButton = styled.button`
     @media (min-width: 768px) {
         display: none;
     }
-`
+`;
 
 export const Nav = styled.nav`
     display: flex;
@@ -62,9 +65,9 @@ export const Nav = styled.nav`
     padding: 0 85px;
     transition: height 300ms, opacity 300ms, padding-bottom 300ms;
 
-    height: ${(props: { isOpen: boolean }) => (props.isOpen ? '160px' : 0)};
-    opacity: ${(props: { isOpen: boolean }) => (props.isOpen ? 1 : 0)};
-    padding-bottom: ${(props: { isOpen: boolean }) =>
+    height: ${(props: {isOpen: boolean}) => (props.isOpen ? '160px' : 0)};
+    opacity: ${(props: {isOpen: boolean}) => (props.isOpen ? 1 : 0)};
+    padding-bottom: ${(props: {isOpen: boolean}) =>
         props.isOpen ? '20px' : 0};
 
     @media (min-width: 768px) {
@@ -77,7 +80,7 @@ export const Nav = styled.nav`
         opacity: 1;
         padding-bottom: 0;
     }
-`
+`;
 
 export const NavLabel = styled(HighlighterLink)`
     font-family: 'Abel', sans-serif;
@@ -86,7 +89,6 @@ export const NavLabel = styled(HighlighterLink)`
     text-transform: uppercase;
 
     &::before {
-        width: ${(props: { isActive: boolean }) =>
-            props.isActive ? '100%' : 0};
+        width: ${(props: {isActive: boolean}) => (props.isActive ? '100%' : 0)};
     }
-`
+`;
