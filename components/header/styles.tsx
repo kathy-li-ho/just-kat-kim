@@ -1,30 +1,32 @@
 import styled from 'styled-components';
 import {HighlighterLink} from '../elements';
+import {BP, COLORS, FONTS, SIZES} from '../style';
 
 export const HeaderWrapper = styled.header`
     background: ${(props: {isOpaque: boolean}) =>
         props.isOpaque
-            ? 'white'
-            : 'linear-gradient(rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%)'};
+            ? COLORS.WHITE
+            : `linear-gradient(${COLORS.WHITE} 80%, ${COLORS.CLEAR} 100%)`};
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1;
 
-    @media (min-width: 768px) {
+    @media (${BP.MEDIUM}) {
         position: static;
         margin: 30px 0;
     }
 `;
 
 export const Stamp = styled.a`
-    font-family: 'Special Elite', serif;
-    font-size: 5rem;
-    color: black;
+    color: ${COLORS.BLACK};
+    font-family: ${FONTS.ELITE};
+    font-size: ${SIZES.TITLE};
+    color: ${COLORS.BLACK};
     text-decoration: none;
     padding: 10px;
 
-    @media (min-width: 768px) {
+    @media (${BP.MEDIUM}) {
         position: absolute;
         top: 7px;
         left: 40px;
@@ -34,11 +36,11 @@ export const Stamp = styled.a`
 export const menuButtonHeight = '60px';
 
 export const MenuButton = styled.button`
-    background: gold;
+    background: ${COLORS.YELLOW};
     border-width: 0 6px 6px;
     border-style: double;
-    border-color: lemonchiffon;
-    box-shadow: 0 0 5px 1px var(--shadow-color);
+    border-color: ${COLORS.LIGHT_YELLOW};
+    box-shadow: 0 0 5px 1px ${COLORS.BLACK15};
     height: ${menuButtonHeight};
     width: 50px;
     margin: 0 10px;
@@ -48,11 +50,11 @@ export const MenuButton = styled.button`
     top: -8px;
 
     & svg {
-        fill: ivory;
+        fill: ${COLORS.LIGHT_YELLOW};
         margin: auto;
     }
 
-    @media (min-width: 768px) {
+    @media (${BP.MEDIUM}) {
         display: none;
     }
 `;
@@ -70,7 +72,7 @@ export const Nav = styled.nav`
     padding-bottom: ${(props: {isOpen: boolean}) =>
         props.isOpen ? '20px' : 0};
 
-    @media (min-width: 768px) {
+    @media (${BP.MEDIUM}) {
         flex-direction: row;
         width: 45%;
         min-width: 500px;
@@ -83,8 +85,8 @@ export const Nav = styled.nav`
 `;
 
 export const NavLabel = styled(HighlighterLink)`
-    font-family: 'Abel', sans-serif;
-    font-size: 2em;
+    font-family: ${FONTS.ABEL};
+    font-size: ${SIZES.BODY};
     text-decoration: none;
     text-transform: uppercase;
 

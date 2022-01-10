@@ -5,15 +5,17 @@ import {Photos} from './photos';
 import styled from 'styled-components';
 import {Footer} from './footer';
 import {Video} from './video';
+import {BP, FONTS, SIZES} from '../style';
+import {BodyText} from '../elements';
 
-const Block = styled.section`
-    font-family: 'Abel', sans-serif;
-    font-size: 2rem;
+const Block = styled(BodyText).attrs((props) => ({
+    as: 'section',
+}))`
     text-align: center;
     margin: 0 auto 50px;
     padding: 0 20px;
 
-    @media (min-width: 768px) {
+    @media (${BP.MEDIUM}) {
         max-width: 900px;
     }
 `;

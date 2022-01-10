@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {PagesBlocksPhotos} from '../../.tina/__generated__/types';
+import {BP} from '../style';
 
 interface IPhotos {
     data: PagesBlocksPhotos;
@@ -14,7 +15,7 @@ const PhotosWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 768px) {
+    @media (${BP.MEDIUM}) {
         flex-direction: row;
         flex-wrap: ${(props: IPhotosProps) =>
             props.isGallery ? 'wrap' : 'no-wrap'};
@@ -27,7 +28,7 @@ const Photo = styled.img`
     height: auto;
     margin: 10px 0;
 
-    @media (min-width: 768px) {
+    @media (${BP.MEDIUM}) {
         width: ${(props: IPhotosProps) => (props.isGallery ? '24%' : '32%')};
     }
 `;

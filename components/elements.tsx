@@ -1,7 +1,14 @@
 import styled from 'styled-components';
+import {BP, COLORS, FONTS, SIZES} from './style';
+
+export const BodyText = styled.span`
+    font-family: ${FONTS.ABEL};
+    font-size: ${SIZES.BODY};
+    color: ${COLORS.BLACK80};
+`;
 
 export const HighlighterLink = styled.a`
-    color: black;
+    color: ${COLORS.BLACK};
     display: inline-block;
     padding: 0 5px;
     margin: 0 -5px;
@@ -11,15 +18,16 @@ export const HighlighterLink = styled.a`
     &::before {
         content: '';
         display: block;
-        background-color: rgba(255, 240, 90, 0.5);
+        background-color: ${COLORS.LIGHT_YELLOW};
         transform: skew(-10deg);
         position: absolute;
         left: 0;
         width: 0;
         height: 100%;
+        z-index: -1;
     }
 
-    @media (min-width: 768px) {
+    @media (${BP.MEDIUM}) {
         &:hover::before {
             width: 100%;
             transition: width 0.3s;
@@ -32,11 +40,11 @@ export const TooltipLink = styled(HighlighterLink)`
     font: inherit;
 
     &::after {
-        background-color: black;
+        background-color: ${COLORS.BLACK};
         content: attr(data-title);
-        color: white;
+        color: ${COLORS.WHITE};
         display: block;
-        font-size: 1.5rem;
+        font-size: ${SIZES.SMALL};
         font-style: normal;
         opacity: 0;
         padding: 3px 5px;
@@ -61,9 +69,9 @@ export const List = styled.ul`
 `;
 
 export const Resume = styled.a`
-    background: gold;
-    color: white;
-    font-size: 2.5rem;
+    background: ${COLORS.YELLOW};
+    color: ${COLORS.WHITE};
+    font-size: ${SIZES.BODY};
     text-decoration: none;
     border-radius: 5px;
     padding: 15px;

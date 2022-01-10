@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {menuButtonHeight} from '../header/styles';
+import {BP} from '../style';
 
 export const SiteWrapper = styled.div`
     display: flex;
@@ -8,7 +9,7 @@ export const SiteWrapper = styled.div`
     justify-content: center;
     min-height: 100vh;
 
-    @media (min-width: 768px) {
+    @media (${BP.MEDIUM}) {
         min-height: calc(100vh - 60px);
     }
 `;
@@ -16,7 +17,7 @@ export const SiteWrapper = styled.div`
 export const ContentWrapper = styled.div`
     margin-top: 40px;
 
-    @media (max-width: 767px) {
+    @media (${BP.MOBILE_ONLY}) {
         padding-top: ${menuButtonHeight};
     }
 `;
