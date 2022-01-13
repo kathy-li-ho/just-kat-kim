@@ -7,6 +7,47 @@
       "fields": [
         {
           "type": "object",
+          "label": "Meta",
+          "name": "meta",
+          "fields": [
+            {
+              "type": "string",
+              "label": "Title",
+              "name": "title",
+              "ui": {
+                "defaultItem": {
+                  "title": "Just Kat Kim"
+                }
+              },
+              "namespace": [
+                "global",
+                "meta",
+                "title"
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Description",
+              "name": "description",
+              "ui": {
+                "defaultItem": {
+                  "description": "The personal website of Kat Kim"
+                }
+              },
+              "namespace": [
+                "global",
+                "meta",
+                "description"
+              ]
+            }
+          ],
+          "namespace": [
+            "global",
+            "meta"
+          ]
+        },
+        {
+          "type": "object",
           "label": "Header",
           "name": "header",
           "fields": [
@@ -55,140 +96,6 @@
           "namespace": [
             "global",
             "header"
-          ]
-        },
-        {
-          "type": "object",
-          "label": "Footer",
-          "name": "footer",
-          "fields": [
-            {
-              "type": "object",
-              "label": "Social Links",
-              "name": "social",
-              "fields": [
-                {
-                  "type": "object",
-                  "label": "Gmail",
-                  "name": "gmail",
-                  "fields": [
-                    {
-                      "type": "string",
-                      "label": "Handle",
-                      "name": "handle",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "gmail",
-                        "handle"
-                      ]
-                    },
-                    {
-                      "type": "string",
-                      "label": "Link",
-                      "name": "link",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "gmail",
-                        "link"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "global",
-                    "footer",
-                    "social",
-                    "gmail"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "label": "Instagram",
-                  "name": "instagram",
-                  "fields": [
-                    {
-                      "type": "string",
-                      "label": "Handle",
-                      "name": "handle",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "instagram",
-                        "handle"
-                      ]
-                    },
-                    {
-                      "type": "string",
-                      "label": "Link",
-                      "name": "link",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "instagram",
-                        "link"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "global",
-                    "footer",
-                    "social",
-                    "instagram"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "label": "IMDb",
-                  "name": "imdb",
-                  "fields": [
-                    {
-                      "type": "string",
-                      "label": "Handle",
-                      "name": "handle",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "imdb",
-                        "handle"
-                      ]
-                    },
-                    {
-                      "type": "string",
-                      "label": "Link",
-                      "name": "link",
-                      "namespace": [
-                        "global",
-                        "footer",
-                        "social",
-                        "imdb",
-                        "link"
-                      ]
-                    }
-                  ],
-                  "namespace": [
-                    "global",
-                    "footer",
-                    "social",
-                    "imdb"
-                  ]
-                }
-              ],
-              "namespace": [
-                "global",
-                "footer",
-                "social"
-              ]
-            }
-          ],
-          "namespace": [
-            "global",
-            "footer"
           ]
         }
       ],

@@ -1,11 +1,14 @@
 import React from 'react';
-import type {Pages} from '../../.tina/__generated__/types';
+import type {
+    Pages,
+    PagesBlocksFooterImage,
+} from '../../.tina/__generated__/types';
 import {Content} from './content';
 import {Photos} from './photos';
 import styled from 'styled-components';
 import {Footer} from './footer';
 import {Video} from './video';
-import {BP, FONTS, SIZES} from '../style';
+import {BP} from '../style';
 import {BodyText} from '../elements';
 
 const Block = styled(BodyText).attrs((props) => ({
@@ -21,6 +24,10 @@ const Block = styled(BodyText).attrs((props) => ({
 `;
 
 export const Blocks = (props: Pages) => {
+    const footerBlock = props.blocks?.find(
+        (block) => block.__typename === 'PagesBlocksFooterImage'
+    ) as PagesBlocksFooterImage;
+
     return (
         <>
             {props.blocks
@@ -44,18 +51,12 @@ export const Blocks = (props: Pages) => {
                                       <Video data={block} />
                                   </Block>
                               );
-                          case 'PagesBlocksFooterImage':
-                              return (
-                                  <Footer
-                                      key={i + block.__typename}
-                                      data={block}
-                                  />
-                              );
                           default:
                               return null;
                       }
                   })
                 : null}
+            {footerBlock ? <Footer data={footerBlock} /> : null}
         </>
     );
 };

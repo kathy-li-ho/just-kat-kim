@@ -155,6 +155,12 @@ export type CollectionDocumentsArgs = {
 
 export type DocumentNode = GlobalDocument | PagesDocument;
 
+export type GlobalMeta = {
+  __typename?: 'GlobalMeta';
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
 export type GlobalHeaderNav = {
   __typename?: 'GlobalHeaderNav';
   href?: Maybe<Scalars['String']>;
@@ -166,40 +172,10 @@ export type GlobalHeader = {
   nav?: Maybe<Array<Maybe<GlobalHeaderNav>>>;
 };
 
-export type GlobalFooterSocialGmail = {
-  __typename?: 'GlobalFooterSocialGmail';
-  handle?: Maybe<Scalars['String']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterSocialInstagram = {
-  __typename?: 'GlobalFooterSocialInstagram';
-  handle?: Maybe<Scalars['String']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterSocialImdb = {
-  __typename?: 'GlobalFooterSocialImdb';
-  handle?: Maybe<Scalars['String']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterSocial = {
-  __typename?: 'GlobalFooterSocial';
-  gmail?: Maybe<GlobalFooterSocialGmail>;
-  instagram?: Maybe<GlobalFooterSocialInstagram>;
-  imdb?: Maybe<GlobalFooterSocialImdb>;
-};
-
-export type GlobalFooter = {
-  __typename?: 'GlobalFooter';
-  social?: Maybe<GlobalFooterSocial>;
-};
-
 export type Global = {
   __typename?: 'Global';
+  meta?: Maybe<GlobalMeta>;
   header?: Maybe<GlobalHeader>;
-  footer?: Maybe<GlobalFooter>;
 };
 
 export type GlobalDocument = Node & Document & {
@@ -320,6 +296,11 @@ export type DocumentMutation = {
   pages?: Maybe<PagesMutation>;
 };
 
+export type GlobalMetaMutation = {
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
 export type GlobalHeaderNavMutation = {
   href?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
@@ -329,34 +310,9 @@ export type GlobalHeaderMutation = {
   nav?: Maybe<Array<Maybe<GlobalHeaderNavMutation>>>;
 };
 
-export type GlobalFooterSocialGmailMutation = {
-  handle?: Maybe<Scalars['String']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterSocialInstagramMutation = {
-  handle?: Maybe<Scalars['String']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterSocialImdbMutation = {
-  handle?: Maybe<Scalars['String']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterSocialMutation = {
-  gmail?: Maybe<GlobalFooterSocialGmailMutation>;
-  instagram?: Maybe<GlobalFooterSocialInstagramMutation>;
-  imdb?: Maybe<GlobalFooterSocialImdbMutation>;
-};
-
-export type GlobalFooterMutation = {
-  social?: Maybe<GlobalFooterSocialMutation>;
-};
-
 export type GlobalMutation = {
+  meta?: Maybe<GlobalMetaMutation>;
   header?: Maybe<GlobalHeaderMutation>;
-  footer?: Maybe<GlobalFooterMutation>;
 };
 
 export type PagesBlocksContentMutation = {

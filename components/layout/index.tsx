@@ -2,21 +2,22 @@ import React from 'react';
 import Head from 'next/head';
 import {Header} from '../header';
 import layoutData from '../../content/global/index.json';
-import {GlobalFooter, GlobalHeader} from '../../.tina/__generated__/types';
+import {GlobalHeader, GlobalMeta} from '../../.tina/__generated__/types';
 import {ContentWrapper, SiteWrapper} from './styles';
 
 interface ILayout {
     children: React.ReactNode;
     data: {
+        meta: GlobalMeta;
         header: GlobalHeader;
-        footer: GlobalFooter;
     };
 }
 
 export const Layout = ({data = layoutData, children}: ILayout) => (
     <>
         <Head>
-            <title>Just Kat Kim</title>
+            <title>{data.meta?.title}</title>
+            <meta name="description" content={data.meta?.description} />
             <meta
                 name="viewport"
                 content="initial-scale=1.0, width=device-width"
@@ -43,6 +44,10 @@ export const Layout = ({data = layoutData, children}: ILayout) => (
 export const layoutQueryFragment = `
   getGlobalDocument(relativePath: "index.json") {
     data {
+      meta {
+        title
+        description
+      }
       header {
         nav {
           href

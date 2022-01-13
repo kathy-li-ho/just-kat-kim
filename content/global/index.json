@@ -1,4 +1,8 @@
 {
+    "meta": {
+        "title": "Just Kat Kim",
+        "description": "The personal website of Kat Kim"
+    },
     "header": {
         "nav": [
             {
@@ -18,22 +22,5 @@
                 "label": "Kat's Bag"
             }
         ]
-    },
-    "footer": {
-        "image": "https://picsum.photos/2000",
-        "social": {
-            "gmail": {
-                "handle": "justkatkim",
-                "link": "mailto:justkatkim@gmail.com"
-            },
-            "instagram": {
-                "handle": "@justkatkim",
-                "link": "https://www.instagram.com/justkatkim/"
-            },
-            "imdb": {
-                "handle": "Kat Kim",
-                "link": "https://www.imdb.com/name/nm10071786/"
-            }
-        }
     }
 }

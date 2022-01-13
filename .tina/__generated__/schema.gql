@@ -76,6 +76,11 @@ type Collection {
 
 union DocumentNode = GlobalDocument | PagesDocument
 
+type GlobalMeta {
+  title: String
+  description: String
+}
+
 type GlobalHeaderNav {
   href: String
   label: String
@@ -85,34 +90,9 @@ type GlobalHeader {
   nav: [GlobalHeaderNav]
 }
 
-type GlobalFooterSocialGmail {
-  handle: String
-  link: String
-}
-
-type GlobalFooterSocialInstagram {
-  handle: String
-  link: String
-}
-
-type GlobalFooterSocialImdb {
-  handle: String
-  link: String
-}
-
-type GlobalFooterSocial {
-  gmail: GlobalFooterSocialGmail
-  instagram: GlobalFooterSocialInstagram
-  imdb: GlobalFooterSocialImdb
-}
-
-type GlobalFooter {
-  social: GlobalFooterSocial
-}
-
 type Global {
+  meta: GlobalMeta
   header: GlobalHeader
-  footer: GlobalFooter
 }
 
 type GlobalDocument implements Node & Document {
@@ -194,6 +174,11 @@ input DocumentMutation {
   pages: PagesMutation
 }
 
+input GlobalMetaMutation {
+  title: String
+  description: String
+}
+
 input GlobalHeaderNavMutation {
   href: String
   label: String
@@ -203,34 +188,9 @@ input GlobalHeaderMutation {
   nav: [GlobalHeaderNavMutation]
 }
 
-input GlobalFooterSocialGmailMutation {
-  handle: String
-  link: String
-}
-
-input GlobalFooterSocialInstagramMutation {
-  handle: String
-  link: String
-}
-
-input GlobalFooterSocialImdbMutation {
-  handle: String
-  link: String
-}
-
-input GlobalFooterSocialMutation {
-  gmail: GlobalFooterSocialGmailMutation
-  instagram: GlobalFooterSocialInstagramMutation
-  imdb: GlobalFooterSocialImdbMutation
-}
-
-input GlobalFooterMutation {
-  social: GlobalFooterSocialMutation
-}
-
 input GlobalMutation {
+  meta: GlobalMetaMutation
   header: GlobalHeaderMutation
-  footer: GlobalFooterMutation
 }
 
 input PagesBlocksContentMutation {

@@ -26,6 +26,9 @@ export const getStaticProps = async ({params}) => {
                   photo
                 }
               }
+              ... on PagesBlocksVideo {
+                url
+              }
               ... on PagesBlocksContent {
                 heading
                 body

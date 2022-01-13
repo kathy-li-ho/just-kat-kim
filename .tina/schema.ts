@@ -98,6 +98,34 @@ export default defineSchema({
             fields: [
                 {
                     type: 'object',
+                    label: 'Meta',
+                    name: 'meta',
+                    fields: [
+                        {
+                            type: 'string',
+                            label: 'Title',
+                            name: 'title',
+                            ui: {
+                                defaultItem: {
+                                    title: 'Just Kat Kim',
+                                },
+                            },
+                        },
+                        {
+                            type: 'string',
+                            label: 'Description',
+                            name: 'description',
+                            ui: {
+                                defaultItem: {
+                                    description:
+                                        'The personal website of Kat Kim',
+                                },
+                            },
+                        },
+                    ],
+                },
+                {
+                    type: 'object',
                     label: 'Header',
                     name: 'header',
                     fields: [
@@ -122,71 +150,6 @@ export default defineSchema({
                                     type: 'string',
                                     label: 'Label',
                                     name: 'label',
-                                },
-                            ],
-                        },
-                    ],
-                },
-                {
-                    type: 'object',
-                    label: 'Footer',
-                    name: 'footer',
-                    fields: [
-                        {
-                            type: 'object',
-                            label: 'Social Links',
-                            name: 'social',
-                            fields: [
-                                {
-                                    type: 'object',
-                                    label: 'Gmail',
-                                    name: 'gmail',
-                                    fields: [
-                                        {
-                                            type: 'string',
-                                            label: 'Handle',
-                                            name: 'handle',
-                                        },
-                                        {
-                                            type: 'string',
-                                            label: 'Link',
-                                            name: 'link',
-                                        },
-                                    ],
-                                },
-                                {
-                                    type: 'object',
-                                    label: 'Instagram',
-                                    name: 'instagram',
-                                    fields: [
-                                        {
-                                            type: 'string',
-                                            label: 'Handle',
-                                            name: 'handle',
-                                        },
-                                        {
-                                            type: 'string',
-                                            label: 'Link',
-                                            name: 'link',
-                                        },
-                                    ],
-                                },
-                                {
-                                    type: 'object',
-                                    label: 'IMDb',
-                                    name: 'imdb',
-                                    fields: [
-                                        {
-                                            type: 'string',
-                                            label: 'Handle',
-                                            name: 'handle',
-                                        },
-                                        {
-                                            type: 'string',
-                                            label: 'Link',
-                                            name: 'link',
-                                        },
-                                    ],
                                 },
                             ],
                         },
