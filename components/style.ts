@@ -23,3 +23,7 @@ export enum COLORS {
     YELLOW = 'rgba(255,215,0,1)', // gold
     LIGHT_YELLOW = 'rgba(255,250,205,1)', // lemonchiffon
 }
+
+export enum BORDER {
+    RADIUS05 = '5px',
+}

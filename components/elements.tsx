@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {BP, COLORS, FONTS, SIZES} from './style';
+import {BORDER, BP, COLORS, FONTS, SIZES} from './style';
 
 export const BodyText = styled.span`
     font-family: ${FONTS.ABEL};
@@ -73,7 +73,7 @@ export const Resume = styled.a`
     color: ${COLORS.WHITE};
     font-size: ${SIZES.BODY};
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: ${BORDER.RADIUS05};
     padding: 15px;
 
     & svg {

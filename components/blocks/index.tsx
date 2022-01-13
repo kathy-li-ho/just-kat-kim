@@ -11,7 +11,7 @@ import {Video} from './video';
 import {BP} from '../style';
 import {BodyText} from '../elements';
 
-const Block = styled(BodyText).attrs((props) => ({
+const Block = styled(BodyText).attrs(() => ({
     as: 'section',
 }))`
     text-align: center;

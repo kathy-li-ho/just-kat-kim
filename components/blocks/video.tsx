@@ -1,10 +1,23 @@
 import React from 'react';
 import ReactPlayer from 'react-player/vimeo';
+import styled from 'styled-components';
 import {PagesBlocksVideo} from '../../.tina/__generated__/types';
+import {BORDER, SIZES} from '../style';
 
 interface IVideo {
     data: PagesBlocksVideo;
 }
+
+const Error = styled.div`
+    background: lavenderblush;
+    border: 1px solid lightcoral;
+    border-radius: ${BORDER.RADIUS05};
+    color: lightcoral;
+    font-size: ${SIZES.SMALL};
+    margin: auto;
+    max-width: 75%;
+    padding: 20px;
+`;
 
 export const Video = ({data}: IVideo) => {
     const canPlayURL = ReactPlayer.canPlay(data.url);
@@ -12,7 +25,12 @@ export const Video = ({data}: IVideo) => {
     console.log(data, data?.url);
 
     if (!canPlayURL) {
-        return <p>Cannot play video from this url! {data.url}</p>;
+        return (
+            <Error>
+                Please choose a video from Vimeo, or ask Kathy for compatibility
+                with another video hosting platform.
+            </Error>
+        );
     }
 
     return (

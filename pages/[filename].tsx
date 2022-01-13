@@ -6,7 +6,7 @@ import type {PagesDocument} from '../.tina/__generated__/types';
 export default function HomePage(
     props: AsyncReturnType<typeof getStaticProps>['props']
 ) {
-    return <Blocks {...props.data.getPagesDocument.data} />;
+    return <Blocks {...props.data?.getPagesDocument?.data} />;
 }
 
 export const getStaticProps = async ({params}) => {
