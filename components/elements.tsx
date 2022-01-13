@@ -7,6 +7,12 @@ export const BodyText = styled.span`
     color: ${COLORS.BLACK80};
 `;
 
+export const Heading = styled.h1`
+    font-size: ${SIZES.TITLE};
+    font-weight: 400;
+    line-height: 2;
+`;
+
 export const HighlighterLink = styled.a`
     color: ${COLORS.BLACK};
     display: inline-block;

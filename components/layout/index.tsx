@@ -7,7 +7,7 @@ import {ContentWrapper, SiteWrapper} from './styles';
 
 interface ILayout {
     children: React.ReactNode;
-    data: {
+    data?: {
         meta: GlobalMeta;
         header: GlobalHeader;
     };
