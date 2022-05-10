@@ -1,6 +1,4 @@
-const withSvgrTM = require('next-svgr')('next-transpile-modules')([
-    'react-markdown',
-]);
+const withSvgrTM = require('next-svgr');
 
 module.exports = withSvgrTM({
     async rewrites() {

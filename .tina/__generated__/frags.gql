@@ -1,0 +1,32 @@
+fragment GlobalParts on Global {
+  header {
+    __typename
+    nav {
+      __typename
+      href
+      label
+    }
+  }
+}
+
+fragment PagesParts on Pages {
+  blocks {
+    __typename
+    ... on PagesBlocksContent {
+      heading
+      body
+    }
+    ... on PagesBlocksFooterImage {
+      footerImg
+    }
+    ... on PagesBlocksPhotos {
+      photos {
+        __typename
+        photo
+      }
+    }
+    ... on PagesBlocksVideo {
+      url
+    }
+  }
+}

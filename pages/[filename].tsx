@@ -12,15 +12,15 @@ export default function HomePage(
         data: props.data,
     });
     return (
-        <Layout data={data.global as any}>
-            <Blocks {...data.page} />
+        <Layout>
+            <Blocks {...data.pages} />
         </Layout>
     );
 }
 
 export const getStaticProps = async ({params}) => {
     const client = ExperimentalGetTinaClient();
-    const tinaProps = await client.ContentQuery({
+    const tinaProps = await client.pages({
         relativePath: `${params.filename}.md`,
     });
     return {
@@ -34,9 +34,9 @@ export const getStaticProps = async ({params}) => {
 
 export const getStaticPaths = async () => {
     const client = ExperimentalGetTinaClient();
-    const pagesListData = await client.pageConnection();
+    const pagesListData = await client.pagesConnection();
     return {
-        paths: pagesListData.data.pageConnection.edges.map((page) => ({
+        paths: pagesListData.data.pagesConnection.edges.map((page) => ({
             params: {filename: page.node._sys.filename},
         })),
         fallback: false,

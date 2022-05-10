@@ -69,6 +69,7 @@ const schema = defineSchema({
         },
     ],
 });
+export default schema;
 
 const branch = 'master';
 const apiURL =
@@ -76,9 +77,9 @@ const apiURL =
         ? 'http://localhost:4001/graphql'
         : `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`;
 
-export const tinaConfig = defineConfig({
-    apiURL,
-    schema,
+        export const tinaConfig = defineConfig({
+            apiURL,
+            schema,
     mediaStore: async () => {
         const pack = await import('next-tinacms-cloudinary');
         return pack.TinaCloudCloudinaryMediaStore;
@@ -106,8 +107,10 @@ export const tinaConfig = defineConfig({
             );
             cms.plugins.add(RouteMapping);
         });
-
-        return cms;
+        import('react-tinacms-editor').then((field)=> {
+            cms.plugins.add(field.MarkdownFieldPlugin)
+          });
+          return cms;
     },
     formifyCallback: ({formConfig, createForm, createGlobalForm}) => {
         if (formConfig.id === 'content/global/index.json') {
@@ -118,4 +121,4 @@ export const tinaConfig = defineConfig({
     },
 });
 
-export default schema;
+
