@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import {PagesBlocksPhotos} from '../../.tina/__generated__/types';
+import {TinaTemplate} from 'tinacms';
 import {BP} from '../style';
 
 interface IPhotos {
-    data: PagesBlocksPhotos;
+    data: {
+        photos: {
+            photo: string;
+        }[];
+    };
 }
 
 interface IPhotosProps {
@@ -46,4 +50,38 @@ export const Photos = ({data}: IPhotos) => {
                 : 'Please add at least three photos'}
         </PhotosWrapper>
     );
+};
+
+const defaultPhoto = {
+    photo: 'https://dummyimage.com/400x600/efefef/dddddd.jpg&text=+=%5E%5E=',
+};
+
+export const photoBlockSchema: TinaTemplate = {
+    name: 'photos',
+    label: 'Photos',
+    ui: {
+        defaultItem: {
+            photos: [defaultPhoto, defaultPhoto, defaultPhoto],
+        },
+    },
+    fields: [
+        {
+            type: 'object',
+            label: 'Featured Photos',
+            name: 'photos',
+            list: true,
+            ui: {
+                defaultItem: {
+                    photo: {...defaultPhoto},
+                },
+            },
+            fields: [
+                {
+                    type: 'image',
+                    label: 'Photo',
+                    name: 'photo',
+                },
+            ],
+        },
+    ],
 };

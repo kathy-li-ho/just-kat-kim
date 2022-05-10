@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import {PagesBlocksFooterImage} from '../../.tina/__generated__/types';
+import {TinaTemplate} from 'tinacms';
 import {GmailIcon, ImdbIcon, InstagramIcon} from '../../assets/svgs';
 import {BodyText} from '../elements';
 import {COLORS, FONTS, SIZES} from '../style';
 
 interface IFooterImage {
-    data: PagesBlocksFooterImage;
+    data: {footerImg: string};
 }
 
 const FooterWrapper = styled.div`
@@ -100,3 +100,16 @@ export const Footer = ({data}: IFooterImage) => (
         </FooterCopy>
     </FooterWrapper>
 );
+
+export const footerImageSchema: TinaTemplate = {
+    name: 'footerImage',
+    label: 'Footer Image',
+
+    fields: [
+        {
+            type: 'image',
+            label: 'Footer Image',
+            name: 'footerImg',
+        },
+    ],
+};

@@ -1,12 +1,14 @@
-const withSvgr = require("next-svgr");
+const withSvgrTM = require('next-svgr')('next-transpile-modules')([
+    'react-markdown',
+]);
 
-module.exports = withSvgr({
-  async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/home",
-      },
-    ];
-  },
+module.exports = withSvgrTM({
+    async rewrites() {
+        return [
+            {
+                source: '/',
+                destination: '/home',
+            },
+        ];
+    },
 });

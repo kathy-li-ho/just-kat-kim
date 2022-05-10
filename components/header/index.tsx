@@ -3,15 +3,20 @@ import Link from 'next/link';
 import {useRouter} from 'next/router';
 import {HeaderWrapper, MenuButton, Nav, NavLabel, Stamp} from './styles';
 import {MenuIcon} from '../../assets/svgs';
-import {GlobalHeader} from '../../.tina/__generated__/types';
 import {useEffect} from 'react';
 
+export interface IGlobalHeader {
+    nav: {
+        href: string;
+        label: string;
+    }[];
+}
 interface IHeader {
-    data: GlobalHeader;
+    data: IGlobalHeader;
 }
 
 export const Header = ({data}: IHeader) => {
-    if (!data) {
+    if (!data || !data.nav.length) {
         return null;
     }
 
@@ -33,25 +38,24 @@ export const Header = ({data}: IHeader) => {
                 <Stamp>meow.</Stamp>
             </Link>
             <Nav isOpen={toggleMenu}>
-                {data.nav &&
-                    data.nav.map((item, i) => {
-                        const route =
-                            router.asPath === '/'
-                                ? 'home'
-                                : router.asPath || 'home';
-                        const href = item.href || 'home';
-                        const activeItem = route.includes(href);
-                        return (
-                            <Link
-                                href={`/${item.href || 'home'}`}
-                                key={`${item.label}-${i}`}
-                            >
-                                <NavLabel isActive={activeItem}>
-                                    {item.label}
-                                </NavLabel>
-                            </Link>
-                        );
-                    })}
+                {data.nav.map((item, i) => {
+                    const route =
+                        router.asPath === '/'
+                            ? 'home'
+                            : router.asPath || 'home';
+                    const href = item.href || 'home';
+                    const activeItem = route.includes(href);
+                    return (
+                        <Link
+                            href={`/${item.href || 'home'}`}
+                            key={`${item.label}-${i}`}
+                        >
+                            <NavLabel isActive={activeItem}>
+                                {item.label}
+                            </NavLabel>
+                        </Link>
+                    );
+                })}
             </Nav>
         </HeaderWrapper>
     );

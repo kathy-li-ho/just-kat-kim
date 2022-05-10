@@ -1,15 +1,12 @@
 import React from 'react';
-import type {
-    Pages,
-    PagesBlocksFooterImage,
-} from '../../.tina/__generated__/types';
-import {Content} from './content';
-import {Photos} from './photos';
 import styled from 'styled-components';
-import {Footer} from './footer';
-import {Video} from './video';
-import {BP} from '../style';
-import {BodyText} from '../elements';
+import type {Pages} from '../.tina/__generated__/types';
+import {Content} from './blocks/content';
+import {Footer} from './blocks/footer';
+import {Photos} from './blocks/photos';
+import {Video} from './blocks/video';
+import {BodyText} from './elements';
+import {BP} from './style';
 
 const Block = styled(BodyText).attrs(() => ({
     as: 'section',
@@ -23,11 +20,7 @@ const Block = styled(BodyText).attrs(() => ({
     }
 `;
 
-export const Blocks = (props: Pages) => {
-    const footerBlock = props.blocks?.find(
-        (block) => block.__typename === 'PagesBlocksFooterImage'
-    ) as PagesBlocksFooterImage;
-
+export const Blocks = (props: Omit<Pages, 'id' | '_sys' | '_values'>) => {
     return (
         <>
             {props.blocks
@@ -35,28 +28,38 @@ export const Blocks = (props: Pages) => {
                       switch (block.__typename) {
                           case 'PagesBlocksContent':
                               return (
-                                  <Block key={i + block.__typename}>
+                                  <Block
+                                      data-tinafield={`blocks.${i}`}
+                                      key={i + block.__typename}
+                                  >
                                       <Content data={block} />
                                   </Block>
                               );
                           case 'PagesBlocksPhotos':
                               return (
-                                  <Block key={i + block.__typename}>
+                                  <Block
+                                      data-tinafield={`blocks.${i}`}
+                                      key={i + block.__typename}
+                                  >
                                       <Photos data={block} />
                                   </Block>
                               );
                           case 'PagesBlocksVideo':
                               return (
-                                  <Block key={i + block.__typename}>
+                                  <Block
+                                      data-tinafield={`blocks.${i}`}
+                                      key={i + block.__typename}
+                                  >
                                       <Video data={block} />
                                   </Block>
                               );
+                          case 'PagesBlocksFooterImage':
+                              return <Footer data={block} />;
                           default:
                               return null;
                       }
                   })
                 : null}
-            {footerBlock ? <Footer data={footerBlock} /> : null}
         </>
     );
 };

@@ -1,75 +1,43 @@
-import {getStaticPropsForTina, staticRequest} from 'tinacms';
-import {Blocks} from '../components/blocks';
-import {layoutQueryFragment} from '../components/layout';
-import type {PagesDocument} from '../.tina/__generated__/types';
+import {Blocks} from '../components/blocks-renderer';
+import {ExperimentalGetTinaClient} from '../.tina/__generated__/types';
+import {useTina} from 'tinacms/dist/edit-state';
+import {Layout} from '../components/layout';
 
 export default function HomePage(
     props: AsyncReturnType<typeof getStaticProps>['props']
 ) {
-    return <Blocks {...props.data?.getPagesDocument?.data} />;
+    const {data} = useTina({
+        query: props.query,
+        variables: props.variables,
+        data: props.data,
+    });
+    return (
+        <Layout data={data.global as any}>
+            <Blocks {...data.page} />
+        </Layout>
+    );
 }
 
 export const getStaticProps = async ({params}) => {
-    const tinaProps = (await getStaticPropsForTina({
-        query: `#graphql
-      query ContentQuery($relativePath: String!) {
-        # "index.md" is _relative_ to the "Pages" path property in your schema definition
-        # you can inspect this file at "content/pages/index.md"
-        ${layoutQueryFragment}
-        getPagesDocument(relativePath: $relativePath) {
-          data {
-            __typename
-            blocks {
-              __typename
-              ... on PagesBlocksPhotos {
-                photos {
-                  photo
-                }
-              }
-              ... on PagesBlocksVideo {
-                url
-              }
-              ... on PagesBlocksContent {
-                heading
-                body
-              }
-              ... on PagesBlocksFooterImage {
-                footerImg
-              }
-            }
-          }
-        }
-      }
-  `,
-        variables: {relativePath: `${params.filename}.md`},
-    })) as {data: {getPagesDocument: PagesDocument}};
-
+    const client = ExperimentalGetTinaClient();
+    const tinaProps = await client.ContentQuery({
+        relativePath: `${params.filename}.md`,
+    });
     return {
         props: {
-            ...tinaProps,
+            data: tinaProps.data,
+            query: tinaProps.query,
+            variables: tinaProps.variables,
         },
     };
 };
 
 export const getStaticPaths = async () => {
-    const pagesListData = (await staticRequest({
-        query: `#graphql
-      {
-        getPagesList {
-          edges {
-            node {
-              sys {
-                filename
-              }
-            }
-          }
-        }
-      }
-    `,
-    })) as any;
+    const client = ExperimentalGetTinaClient();
+    const pagesListData = await client.pageConnection();
     return {
-        paths: pagesListData.getPagesList.edges.map((page) => ({
-            params: {filename: page.node.sys.filename},
+        paths: pagesListData.data.pageConnection.edges.map((page) => ({
+            params: {filename: page.node._sys.filename},
         })),
         fallback: false,
     };

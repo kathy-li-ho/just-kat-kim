@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactPlayer from 'react-player/vimeo';
 import styled from 'styled-components';
-import {PagesBlocksVideo} from '../../.tina/__generated__/types';
+import {TinaTemplate} from 'tinacms';
 import {BORDER, SIZES} from '../style';
 
 interface IVideo {
-    data: PagesBlocksVideo;
+    data: {
+        url: string;
+    };
 }
 
 const Error = styled.div`
@@ -35,10 +37,29 @@ export const Video = ({data}: IVideo) => {
 
     return (
         <ReactPlayer
-            style={{margin: 'auto'}}
+            style={{margin: 'auto', maxWidth: 640, maxHeight: 360}}
+            width={undefined}
+            height={undefined}
             url={data.url}
             onError={(error) => console.log(error)}
             light
         />
     );
+};
+
+export const videoBlockSchema: TinaTemplate = {
+    name: 'video',
+    label: 'Video',
+    ui: {
+        defaultItem: {
+            url: 'https://vimeo.com/85683143',
+        },
+    },
+    fields: [
+        {
+            type: 'string',
+            label: 'Video URL',
+            name: 'url',
+        },
+    ],
 };

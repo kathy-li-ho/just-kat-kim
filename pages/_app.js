@@ -8,14 +8,11 @@ import {TinaCloudCloudinaryMediaStore} from 'next-tinacms-cloudinary';
 const NEXT_PUBLIC_TINA_CLIENT_ID = process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
 const NEXT_PUBLIC_USE_LOCAL_CLIENT =
     process.env.NEXT_PUBLIC_USE_LOCAL_CLIENT || 0;
-const NEXT_PUBLIC_SHOW_EDIT_BUTTON =
-    process.env.NEXT_PUBLIC_SHOW_EDIT_BUTTON || 1;
 
 const App = ({Component, pageProps}) => {
     return (
         <>
             <TinaEditProvider
-                showEditButton={!!Number(NEXT_PUBLIC_SHOW_EDIT_BUTTON) || false}
                 editMode={
                     <TinaCMS
                         branch="master"
@@ -30,6 +27,7 @@ const App = ({Component, pageProps}) => {
                                     cms.plugins.add(MarkdownFieldPlugin);
                                 }
                             );
+                            cms.flags.set('tina-admin', true);
                             cms.events.subscribe(
                                 'plugin:add:content-creator',
                                 () => {
