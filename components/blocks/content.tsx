@@ -1,14 +1,12 @@
 import dynamic from 'next/dynamic';
 import {TinaTemplate} from 'tinacms';
+import {PagesBlocksContent} from '../../.tina/__generated__/types';
 import {PdfIcon} from '../../assets/svgs';
 import {Heading, HighlighterLink, List, Resume, TooltipLink} from '../elements';
-const ReactMarkdown= dynamic(() => import('react-markdown'),{ ssr: false })
+const ReactMarkdown = dynamic(() => import('react-markdown'), {ssr: false});
 
 interface IContent {
-    data: {
-        heading: string;
-        body: string;
-    };
+    data: PagesBlocksContent;
 }
 
 const renderers = {

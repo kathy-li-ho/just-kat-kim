@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import {TinaTemplate} from 'tinacms';
+import {PagesBlocksPhotos} from '../../.tina/__generated__/types';
 import {BP} from '../style';
 
 interface IPhotos {
-    data: {
-        photos: {
-            photo: string;
-        }[];
-    };
+    data: PagesBlocksPhotos;
 }
 
 interface IPhotosProps {

@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import {TinaTemplate} from 'tinacms';
+import {PagesBlocksFooterImage} from '../../.tina/__generated__/types';
 import {GmailIcon, ImdbIcon, InstagramIcon} from '../../assets/svgs';
 import {BodyText} from '../elements';
 import {COLORS, FONTS, SIZES} from '../style';
 
 interface IFooterImage {
-    data: {footerImg: string};
+    data: PagesBlocksFooterImage;
 }
 
 const FooterWrapper = styled.div`

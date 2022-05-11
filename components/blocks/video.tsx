@@ -2,12 +2,11 @@ import React from 'react';
 import ReactPlayer from 'react-player/vimeo';
 import styled from 'styled-components';
 import {TinaTemplate} from 'tinacms';
+import {PagesBlocksVideo} from '../../.tina/__generated__/types';
 import {BORDER, SIZES} from '../style';
 
 interface IVideo {
-    data: {
-        url: string;
-    };
+    data: PagesBlocksVideo;
 }
 
 const Error = styled.div`
