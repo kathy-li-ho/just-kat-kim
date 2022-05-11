@@ -1,8 +1,8 @@
-import React from 'react';
-import Markdown from 'react-markdown/react-markdown.min';
+import dynamic from 'next/dynamic';
 import {TinaTemplate} from 'tinacms';
 import {PdfIcon} from '../../assets/svgs';
 import {Heading, HighlighterLink, List, Resume, TooltipLink} from '../elements';
+const ReactMarkdown= dynamic(() => import('react-markdown'),{ ssr: false })
 
 interface IContent {
     data: {
@@ -31,9 +31,9 @@ const renderers = {
 export const Content = ({data}: IContent) => (
     <>
         <Heading>{data.heading}</Heading>
-        <Markdown components={renderers} linkTarget="_blank">
+        <ReactMarkdown components={renderers} linkTarget="_blank">
             {data.body}
-        </Markdown>
+        </ReactMarkdown>
     </>
 );
 
