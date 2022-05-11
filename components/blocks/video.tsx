@@ -20,6 +20,11 @@ const Error = styled.div`
     padding: 20px;
 `;
 
+const VideoWrapper = styled.div`
+    padding-bottom: 56.25%;
+    position: relative;
+`;
+
 export const Video = ({data}: IVideo) => {
     const canPlayURL = ReactPlayer.canPlay(data.url);
 
@@ -35,14 +40,16 @@ export const Video = ({data}: IVideo) => {
     }
 
     return (
-        <ReactPlayer
-            style={{margin: 'auto', maxWidth: 640, maxHeight: 360}}
-            width={undefined}
-            height={undefined}
-            url={data.url}
-            onError={(error) => console.log(error)}
-            light
-        />
+        <VideoWrapper>
+            <ReactPlayer
+                style={{position: 'absolute'}}
+                height="100%"
+                width="100%"
+                url={data.url}
+                onError={(error) => console.log(error)}
+                light
+            />
+        </VideoWrapper>
     );
 };
 
