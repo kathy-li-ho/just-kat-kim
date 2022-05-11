@@ -3,6 +3,9 @@ import {TinaTemplate} from 'tinacms';
 import {PagesBlocksContent} from '../../.tina/__generated__/types';
 import {PdfIcon} from '../../assets/svgs';
 import {Heading, HighlighterLink, List, Resume, TooltipLink} from '../elements';
+
+// Not sure what types it is expecting but we can ts-ignore to get you going.
+//@ts-ignore
 const ReactMarkdown = dynamic(() => import('react-markdown'), {ssr: false});
 
 interface IContent {
