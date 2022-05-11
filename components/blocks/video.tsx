@@ -21,14 +21,12 @@ const Error = styled.div`
 `;
 
 const VideoWrapper = styled.div`
-    padding-bottom: 56.25%;
+    padding-bottom: ${(9 / 16) * 100}%;
     position: relative;
 `;
 
 export const Video = ({data}: IVideo) => {
     const canPlayURL = ReactPlayer.canPlay(data.url);
-
-    console.log(data, data?.url);
 
     if (!canPlayURL) {
         return (

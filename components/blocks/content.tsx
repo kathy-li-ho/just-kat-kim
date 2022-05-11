@@ -10,7 +10,7 @@ interface IContent {
 }
 
 const renderers = {
-    link: ({node, ...props}) => {
+    a: ({node, ...props}) => {
         if (props.title && props.title === 'resume') {
             return (
                 <Resume {...props}>

@@ -54,7 +54,12 @@ export const Blocks = (props: Omit<Pages, 'id' | '_sys' | '_values'>) => {
                                   </Block>
                               );
                           case 'PagesBlocksFooterImage':
-                              return <Footer data={block} />;
+                              return (
+                                  <Footer
+                                      data={block}
+                                      key={i + block.__typename}
+                                  />
+                              );
                           default:
                               return null;
                       }

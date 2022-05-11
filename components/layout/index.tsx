@@ -25,14 +25,6 @@ export const Layout = ({data = layoutData, children}: ILayout) => (
             />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link
-                href="https://fonts.googleapis.com/css?family=Abel&display=swap"
-                rel="stylesheet"
-            />
-            <link
-                href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap"
-                rel="stylesheet"
-            />
         </Head>
 
         <SiteWrapper>
@@ -41,21 +33,3 @@ export const Layout = ({data = layoutData, children}: ILayout) => (
         </SiteWrapper>
     </>
 );
-
-// TODO: DELETE
-// export const layoutQueryFragment = `
-//   getGlobalDocument(relativePath: "index.json") {
-//     data {
-//       meta {
-//         title
-//         description
-//       }
-//       header {
-//         nav {
-//           href
-//           label
-//         }
-//       }
-//     }
-//   }
-// `;
