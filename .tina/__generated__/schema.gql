@@ -115,7 +115,7 @@ type PagesBlocksFooterImage {
 }
 
 type PagesBlocksPhotosPhotos {
-  photo: String
+  src: String
 }
 
 type PagesBlocksPhotos {
@@ -185,7 +185,7 @@ input PagesBlocksFooterImageMutation {
 }
 
 input PagesBlocksPhotosPhotosMutation {
-  photo: String
+  src: String
 }
 
 input PagesBlocksPhotosMutation {

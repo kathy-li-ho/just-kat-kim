@@ -203,7 +203,7 @@ export type PagesBlocksFooterImage = {
 
 export type PagesBlocksPhotosPhotos = {
   __typename?: 'PagesBlocksPhotosPhotos';
-  photo?: Maybe<Scalars['String']>;
+  src?: Maybe<Scalars['String']>;
 };
 
 export type PagesBlocksPhotos = {
@@ -330,7 +330,7 @@ export type PagesBlocksFooterImageMutation = {
 };
 
 export type PagesBlocksPhotosPhotosMutation = {
-  photo?: InputMaybe<Scalars['String']>;
+  src?: InputMaybe<Scalars['String']>;
 };
 
 export type PagesBlocksPhotosMutation = {
@@ -354,7 +354,7 @@ export type PagesMutation = {
 
 export type GlobalPartsFragment = { __typename?: 'Global', header?: { __typename: 'GlobalHeader', nav?: Array<{ __typename: 'GlobalHeaderNav', href?: string | null, label?: string | null } | null> | null } | null };
 
-export type PagesPartsFragment = { __typename?: 'Pages', blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksPhotos', photos?: Array<{ __typename: 'PagesBlocksPhotosPhotos', photo?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null };
+export type PagesPartsFragment = { __typename?: 'Pages', blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksPhotos', photos?: Array<{ __typename: 'PagesBlocksPhotosPhotos', src?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null };
 
 export type GlobalQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -373,12 +373,12 @@ export type PagesQueryVariables = Exact<{
 }>;
 
 
-export type PagesQuery = { __typename?: 'Query', pages: { __typename?: 'Pages', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksPhotos', photos?: Array<{ __typename: 'PagesBlocksPhotosPhotos', photo?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null } };
+export type PagesQuery = { __typename?: 'Query', pages: { __typename?: 'Pages', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksPhotos', photos?: Array<{ __typename: 'PagesBlocksPhotosPhotos', src?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null } };
 
 export type PagesConnectionQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, edges?: Array<{ __typename?: 'PagesConnectionEdges', node?: { __typename?: 'Pages', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksPhotos', photos?: Array<{ __typename: 'PagesBlocksPhotosPhotos', photo?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null } | null } | null> | null } };
+export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, edges?: Array<{ __typename?: 'PagesConnectionEdges', node?: { __typename?: 'Pages', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksPhotos', photos?: Array<{ __typename: 'PagesBlocksPhotosPhotos', src?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null } | null } | null> | null } };
 
 export const GlobalPartsFragmentDoc = gql`
     fragment GlobalParts on Global {
@@ -406,7 +406,7 @@ export const PagesPartsFragmentDoc = gql`
     ... on PagesBlocksPhotos {
       photos {
         __typename
-        photo
+        src
       }
     }
     ... on PagesBlocksVideo {

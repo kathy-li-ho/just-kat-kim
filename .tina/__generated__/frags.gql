@@ -22,7 +22,7 @@ fragment PagesParts on Pages {
     ... on PagesBlocksPhotos {
       photos {
         __typename
-        photo
+        src
       }
     }
     ... on PagesBlocksVideo {
