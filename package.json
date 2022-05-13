@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn tinacms server:start -c \"next dev\"",
+    "dev": "yarn tinacms server:start -c \"next dev\" --experimentalData",
     "build": "yarn tinacms server:start -c \"next build\"",
-    "start": "yarn tinacms server:start -c \"next start\"",
+    "start": "yarn tinacms server:start -c \"next start\" --experimentalData",
     "export": "yarn build && next export"
   },
   "devDependencies": {
