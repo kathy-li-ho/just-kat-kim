@@ -48,7 +48,11 @@ type Query {
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
   pages(relativePath: String): Pages!
-  pagesConnection(before: String, after: String, first: Float, last: Float, sort: String): PagesConnection!
+  pagesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PagesFilter): PagesConnection!
+}
+
+input DocumentFilter {
+  pages: PagesFilter
 }
 
 type DocumentConnectionEdges {
@@ -71,7 +75,7 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
 }
 
 union DocumentNode = Pages
@@ -85,25 +89,73 @@ type PagesBlocksFooterImage {
   footerImg: String
 }
 
-type PagesBlocksPhotosPhotos {
+type PagesBlocksGalleryPhotos {
+  title: String
   src: String
 }
 
-type PagesBlocksPhotos {
-  photos: [PagesBlocksPhotosPhotos]
+type PagesBlocksGallery {
+  photos: [PagesBlocksGalleryPhotos]
 }
 
 type PagesBlocksVideo {
   url: String
 }
 
-union PagesBlocks = PagesBlocksContent | PagesBlocksFooterImage | PagesBlocksPhotos | PagesBlocksVideo
+union PagesBlocks = PagesBlocksContent | PagesBlocksFooterImage | PagesBlocksGallery | PagesBlocksVideo
 
 type Pages implements Node & Document {
   blocks: [PagesBlocks]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input StringFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PagesBlocksContentFilter {
+  heading: StringFilter
+  body: StringFilter
+}
+
+input ImageFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PagesBlocksFooterImageFilter {
+  footerImg: ImageFilter
+}
+
+input PagesBlocksGalleryPhotosFilter {
+  title: StringFilter
+  src: ImageFilter
+}
+
+input PagesBlocksGalleryFilter {
+  photos: PagesBlocksGalleryPhotosFilter
+}
+
+input PagesBlocksVideoFilter {
+  url: StringFilter
+}
+
+input PagesBlocksFilter {
+  content: PagesBlocksContentFilter
+  footerImage: PagesBlocksFooterImageFilter
+  gallery: PagesBlocksGalleryFilter
+  video: PagesBlocksVideoFilter
+}
+
+input PagesFilter {
+  blocks: PagesBlocksFilter
 }
 
 type PagesConnectionEdges {
@@ -139,12 +191,13 @@ input PagesBlocksFooterImageMutation {
   footerImg: String
 }
 
-input PagesBlocksPhotosPhotosMutation {
+input PagesBlocksGalleryPhotosMutation {
+  title: String
   src: String
 }
 
-input PagesBlocksPhotosMutation {
-  photos: [PagesBlocksPhotosPhotosMutation]
+input PagesBlocksGalleryMutation {
+  photos: [PagesBlocksGalleryPhotosMutation]
 }
 
 input PagesBlocksVideoMutation {
@@ -154,7 +207,7 @@ input PagesBlocksVideoMutation {
 input PagesBlocksMutation {
   content: PagesBlocksContentMutation
   footerImage: PagesBlocksFooterImageMutation
-  photos: PagesBlocksPhotosMutation
+  gallery: PagesBlocksGalleryMutation
   video: PagesBlocksVideoMutation
 }
 

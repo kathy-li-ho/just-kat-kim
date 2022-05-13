@@ -8,9 +8,10 @@ fragment PagesParts on Pages {
     ... on PagesBlocksFooterImage {
       footerImg
     }
-    ... on PagesBlocksPhotos {
+    ... on PagesBlocksGallery {
       photos {
         __typename
+        title
         src
       }
     }

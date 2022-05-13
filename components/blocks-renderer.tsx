@@ -35,7 +35,7 @@ export const Blocks = (props: Omit<Pages, 'id' | '_sys' | '_values'>) => {
                                       <Content data={block} />
                                   </Block>
                               );
-                          case 'PagesBlocksPhotos':
+                          case 'PagesBlocksGallery':
                               return (
                                   <Block
                                       data-tinafield={`blocks.${i}`}

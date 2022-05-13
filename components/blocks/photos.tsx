@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import {TinaTemplate} from 'tinacms';
-import {PagesBlocksPhotos} from '../../.tina/__generated__/types';
+import {PagesBlocksGallery} from '../../.tina/__generated__/types';
 import {BP} from '../style';
 
 interface IPhotos {
-    data: PagesBlocksPhotos;
+    data: PagesBlocksGallery;
 }
 
 interface IPhotosProps {
@@ -50,12 +50,13 @@ export const Photos = ({data}: IPhotos) => {
 };
 
 const placeholderImg = {
+    title: 'Photo title',
     src: 'https://dummyimage.com/400x600/efefef/dddddd.jpg&text=+=%5E%5E=',
 };
 
 export const photoBlockSchema: TinaTemplate = {
-    name: 'photos',
-    label: 'Photos',
+    label: 'Featured Photos',
+    name: 'gallery',
     ui: {
         defaultItem: {
             photos: [placeholderImg, placeholderImg, placeholderImg],
@@ -63,18 +64,29 @@ export const photoBlockSchema: TinaTemplate = {
     },
     fields: [
         {
-            type: 'object',
-            label: 'Featured Photos',
+            label: 'Photos',
             name: 'photos',
+            type: 'object',
             list: true,
             ui: {
                 defaultItem: placeholderImg,
+                itemProps: (item) => {
+                    if (item?.title?.length > 0) {
+                        return {label: item?.title};
+                    }
+                },
             },
             fields: [
                 {
-                    type: 'image',
+                    label: 'Title',
+                    name: 'title',
+                    type: 'string',
+                    ui: {defaultValue: placeholderImg.title},
+                },
+                {
                     label: 'Photo',
                     name: 'src',
+                    type: 'image',
                 },
             ],
         },

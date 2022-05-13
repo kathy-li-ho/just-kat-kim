@@ -109,6 +109,11 @@ export type QueryPagesConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<PagesFilter>;
+};
+
+export type DocumentFilter = {
+  pages?: InputMaybe<PagesFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -144,6 +149,7 @@ export type CollectionDocumentsArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<DocumentFilter>;
 };
 
 export type DocumentNode = Pages;
@@ -159,14 +165,15 @@ export type PagesBlocksFooterImage = {
   footerImg?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocksPhotosPhotos = {
-  __typename?: 'PagesBlocksPhotosPhotos';
+export type PagesBlocksGalleryPhotos = {
+  __typename?: 'PagesBlocksGalleryPhotos';
+  title?: Maybe<Scalars['String']>;
   src?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocksPhotos = {
-  __typename?: 'PagesBlocksPhotos';
-  photos?: Maybe<Array<Maybe<PagesBlocksPhotosPhotos>>>;
+export type PagesBlocksGallery = {
+  __typename?: 'PagesBlocksGallery';
+  photos?: Maybe<Array<Maybe<PagesBlocksGalleryPhotos>>>;
 };
 
 export type PagesBlocksVideo = {
@@ -174,7 +181,7 @@ export type PagesBlocksVideo = {
   url?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocks = PagesBlocksContent | PagesBlocksFooterImage | PagesBlocksPhotos | PagesBlocksVideo;
+export type PagesBlocks = PagesBlocksContent | PagesBlocksFooterImage | PagesBlocksGallery | PagesBlocksVideo;
 
 export type Pages = Node & Document & {
   __typename?: 'Pages';
@@ -182,6 +189,53 @@ export type Pages = Node & Document & {
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
+};
+
+export type StringFilter = {
+  startsWith?: InputMaybe<Scalars['String']>;
+  eq?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PagesBlocksContentFilter = {
+  heading?: InputMaybe<StringFilter>;
+  body?: InputMaybe<StringFilter>;
+};
+
+export type ImageFilter = {
+  startsWith?: InputMaybe<Scalars['String']>;
+  eq?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PagesBlocksFooterImageFilter = {
+  footerImg?: InputMaybe<ImageFilter>;
+};
+
+export type PagesBlocksGalleryPhotosFilter = {
+  title?: InputMaybe<StringFilter>;
+  src?: InputMaybe<ImageFilter>;
+};
+
+export type PagesBlocksGalleryFilter = {
+  photos?: InputMaybe<PagesBlocksGalleryPhotosFilter>;
+};
+
+export type PagesBlocksVideoFilter = {
+  url?: InputMaybe<StringFilter>;
+};
+
+export type PagesBlocksFilter = {
+  content?: InputMaybe<PagesBlocksContentFilter>;
+  footerImage?: InputMaybe<PagesBlocksFooterImageFilter>;
+  gallery?: InputMaybe<PagesBlocksGalleryFilter>;
+  video?: InputMaybe<PagesBlocksVideoFilter>;
+};
+
+export type PagesFilter = {
+  blocks?: InputMaybe<PagesBlocksFilter>;
 };
 
 export type PagesConnectionEdges = {
@@ -259,12 +313,13 @@ export type PagesBlocksFooterImageMutation = {
   footerImg?: InputMaybe<Scalars['String']>;
 };
 
-export type PagesBlocksPhotosPhotosMutation = {
+export type PagesBlocksGalleryPhotosMutation = {
+  title?: InputMaybe<Scalars['String']>;
   src?: InputMaybe<Scalars['String']>;
 };
 
-export type PagesBlocksPhotosMutation = {
-  photos?: InputMaybe<Array<InputMaybe<PagesBlocksPhotosPhotosMutation>>>;
+export type PagesBlocksGalleryMutation = {
+  photos?: InputMaybe<Array<InputMaybe<PagesBlocksGalleryPhotosMutation>>>;
 };
 
 export type PagesBlocksVideoMutation = {
@@ -274,7 +329,7 @@ export type PagesBlocksVideoMutation = {
 export type PagesBlocksMutation = {
   content?: InputMaybe<PagesBlocksContentMutation>;
   footerImage?: InputMaybe<PagesBlocksFooterImageMutation>;
-  photos?: InputMaybe<PagesBlocksPhotosMutation>;
+  gallery?: InputMaybe<PagesBlocksGalleryMutation>;
   video?: InputMaybe<PagesBlocksVideoMutation>;
 };
 
@@ -282,19 +337,19 @@ export type PagesMutation = {
   blocks?: InputMaybe<Array<InputMaybe<PagesBlocksMutation>>>;
 };
 
-export type PagesPartsFragment = { __typename?: 'Pages', blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksPhotos', photos?: Array<{ __typename: 'PagesBlocksPhotosPhotos', src?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null };
+export type PagesPartsFragment = { __typename?: 'Pages', blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksGallery', photos?: Array<{ __typename: 'PagesBlocksGalleryPhotos', title?: string | null, src?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null };
 
 export type PagesQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type PagesQuery = { __typename?: 'Query', pages: { __typename?: 'Pages', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksPhotos', photos?: Array<{ __typename: 'PagesBlocksPhotosPhotos', src?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null } };
+export type PagesQuery = { __typename?: 'Query', pages: { __typename?: 'Pages', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksGallery', photos?: Array<{ __typename: 'PagesBlocksGalleryPhotos', title?: string | null, src?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null } };
 
 export type PagesConnectionQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, edges?: Array<{ __typename?: 'PagesConnectionEdges', node?: { __typename?: 'Pages', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksPhotos', photos?: Array<{ __typename: 'PagesBlocksPhotosPhotos', src?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null } | null } | null> | null } };
+export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, edges?: Array<{ __typename?: 'PagesConnectionEdges', node?: { __typename?: 'Pages', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PagesBlocksContent', heading?: string | null, body?: string | null } | { __typename: 'PagesBlocksFooterImage', footerImg?: string | null } | { __typename: 'PagesBlocksGallery', photos?: Array<{ __typename: 'PagesBlocksGalleryPhotos', title?: string | null, src?: string | null } | null> | null } | { __typename: 'PagesBlocksVideo', url?: string | null } | null> | null } | null } | null> | null } };
 
 export const PagesPartsFragmentDoc = gql`
     fragment PagesParts on Pages {
@@ -307,9 +362,10 @@ export const PagesPartsFragmentDoc = gql`
     ... on PagesBlocksFooterImage {
       footerImg
     }
-    ... on PagesBlocksPhotos {
+    ... on PagesBlocksGallery {
       photos {
         __typename
+        title
         src
       }
     }
