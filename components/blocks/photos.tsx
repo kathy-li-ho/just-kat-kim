@@ -41,16 +41,16 @@ export const Photos = ({data}: IPhotos) => {
     return (
         <PhotosWrapper isGallery={numPhotos > 3}>
             {numPhotos
-                ? photos.map(({photo}, i) => (
-                      <Photo key={i} src={photo} alt="" />
+                ? photos.map(({src}, i) => (
+                      <Photo {...{alt: '', key: i, src}} />
                   ))
                 : 'Please add at least three photos'}
         </PhotosWrapper>
     );
 };
 
-const defaultPhoto = {
-    photo: 'https://dummyimage.com/400x600/efefef/dddddd.jpg&text=+=%5E%5E=',
+const placeholderImg = {
+    src: 'https://dummyimage.com/400x600/efefef/dddddd.jpg&text=+=%5E%5E=',
 };
 
 export const photoBlockSchema: TinaTemplate = {
@@ -58,7 +58,7 @@ export const photoBlockSchema: TinaTemplate = {
     label: 'Photos',
     ui: {
         defaultItem: {
-            photos: [defaultPhoto, defaultPhoto, defaultPhoto],
+            photos: [placeholderImg, placeholderImg, placeholderImg],
         },
     },
     fields: [
@@ -68,15 +68,13 @@ export const photoBlockSchema: TinaTemplate = {
             name: 'photos',
             list: true,
             ui: {
-                defaultItem: {
-                    photo: {...defaultPhoto},
-                },
+                defaultItem: placeholderImg,
             },
             fields: [
                 {
                     type: 'image',
                     label: 'Photo',
-                    name: 'photo',
+                    name: 'src',
                 },
             ],
         },
