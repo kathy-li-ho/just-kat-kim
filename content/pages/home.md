@@ -1,7 +1,7 @@
 ---
 blocks:
   - heading: Kat Kim
-    body: Performing. test
+    body: Performing.
     _template: content
   - photos:
       - src: >-
