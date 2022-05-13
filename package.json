@@ -31,7 +31,7 @@
     "react-tinacms-editor": "^0.53.17",
     "styled-components": "^5.3.5",
     "styled-jsx": "^5.0.2",
-    "tinacms": "^0.68.3",
+    "tinacms": "^0.68.4",
     "typescript": "^4.6.4"
   },
   "resolutions": {
