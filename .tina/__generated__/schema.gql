@@ -47,8 +47,6 @@ type Query {
   collections: [Collection!]!
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
-  global(relativePath: String): Global!
-  globalConnection(before: String, after: String, first: Float, last: Float, sort: String): GlobalConnection!
   pages(relativePath: String): Pages!
   pagesConnection(before: String, after: String, first: Float, last: Float, sort: String): PagesConnection!
 }
@@ -76,34 +74,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
 }
 
-union DocumentNode = Global | Pages
-
-type GlobalHeaderNav {
-  href: String
-  label: String
-}
-
-type GlobalHeader {
-  nav: [GlobalHeaderNav]
-}
-
-type Global implements Node & Document {
-  header: GlobalHeader
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-type GlobalConnectionEdges {
-  cursor: String!
-  node: Global
-}
-
-type GlobalConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [GlobalConnectionEdges]
-}
+union DocumentNode = Pages
 
 type PagesBlocksContent {
   heading: String
@@ -151,28 +122,12 @@ type Mutation {
   updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
-  updateGlobal(relativePath: String!, params: GlobalMutation!): Global!
-  createGlobal(relativePath: String!, params: GlobalMutation!): Global!
   updatePages(relativePath: String!, params: PagesMutation!): Pages!
   createPages(relativePath: String!, params: PagesMutation!): Pages!
 }
 
 input DocumentMutation {
-  global: GlobalMutation
   pages: PagesMutation
-}
-
-input GlobalHeaderNavMutation {
-  href: String
-  label: String
-}
-
-input GlobalHeaderMutation {
-  nav: [GlobalHeaderNavMutation]
-}
-
-input GlobalMutation {
-  header: GlobalHeaderMutation
 }
 
 input PagesBlocksContentMutation {

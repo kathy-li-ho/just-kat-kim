@@ -7,45 +7,6 @@ import {videoBlockSchema} from '../components/blocks/video';
 const schema = defineSchema({
     collections: [
         {
-            label: 'Global',
-            name: 'global',
-            path: 'content/global',
-            format: 'json',
-            fields: [
-                {
-                    type: 'object',
-                    label: 'Header',
-                    name: 'header',
-                    fields: [
-                        {
-                            type: 'object',
-                            label: 'Nav Links',
-                            name: 'nav',
-                            list: true,
-                            ui: {
-                                defaultItem: {
-                                    href: 'home',
-                                    label: 'Home',
-                                },
-                            },
-                            fields: [
-                                {
-                                    type: 'string',
-                                    label: 'Link',
-                                    name: 'href',
-                                },
-                                {
-                                    type: 'string',
-                                    label: 'Label',
-                                    name: 'label',
-                                },
-                            ],
-                        },
-                    ],
-                },
-            ],
-        },
-        {
             label: 'Pages',
             name: 'pages',
             path: 'content/pages',
@@ -77,9 +38,9 @@ const apiURL =
         ? 'http://localhost:4001/graphql'
         : `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`;
 
-        export const tinaConfig = defineConfig({
-            apiURL,
-            schema,
+export const tinaConfig = defineConfig({
+    apiURL,
+    schema,
     mediaStore: async () => {
         const pack = await import('next-tinacms-cloudinary');
         return pack.TinaCloudCloudinaryMediaStore;
@@ -107,10 +68,10 @@ const apiURL =
             );
             cms.plugins.add(RouteMapping);
         });
-        import('react-tinacms-editor').then((field)=> {
-            cms.plugins.add(field.MarkdownFieldPlugin)
-          });
-          return cms;
+        import('react-tinacms-editor').then((field) => {
+            cms.plugins.add(field.MarkdownFieldPlugin);
+        });
+        return cms;
     },
     formifyCallback: ({formConfig, createForm, createGlobalForm}) => {
         if (formConfig.id === 'content/global/index.json') {
@@ -120,5 +81,3 @@ const apiURL =
         return createForm(formConfig);
     },
 });
-
-

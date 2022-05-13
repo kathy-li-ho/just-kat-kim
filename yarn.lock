@@ -8833,7 +8833,7 @@ test-exclude@^6.0.0:
     glob "^7.1.4"
     minimatch "^3.0.4"
 
-tinacms@^0.68.3:
+tinacms@^0.68.4:
   version "0.68.4"
   resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.68.4.tgz#5717894f8c64eb3d22d0fe97eaba4620f02dba66"
   integrity sha512-oALNfKE0DNzNIyJvn4yHUwEJTe6TcIr8U8jztzZj6uH9hIqdOIDwSu4+E6qUA1hzwZzRiu5Wneb9SeZuUXd/lg==
